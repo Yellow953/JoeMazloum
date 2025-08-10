@@ -95,32 +95,134 @@ function LeftRightSection({ id, title, text, image, reverse = false }) {
   );
 }
 
+const floatingIcons = [
+  {
+    src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg",
+    size: 50,
+  },
+  {
+    src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg",
+    size: 60,
+  },
+  {
+    src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/laravel.svg",
+    size: 60,
+  },
+  {
+    src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg",
+    size: 55,
+  },
+  {
+    src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg",
+    size: 50,
+  },
+  {
+    src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/css3.svg",
+    size: 50,
+  },
+];
+
+function FloatingIcons({ mouseX, mouseY }) {
+  const icons = [
+    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg",
+    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg",
+    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/laravel.svg",
+    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg",
+    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg",
+    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/css3.svg",
+  ];
+
+  const positions = [
+    { top: "15%", left: "20%" },
+    { top: "30%", left: "75%" },
+    { top: "60%", left: "15%" },
+    { top: "80%", left: "50%" },
+    { top: "40%", left: "40%" },
+    { top: "70%", left: "75%" },
+  ];
+
+  return (
+    <>
+      {icons.map((src, index) => {
+        const pos = positions[index % positions.length];
+        const depth = (index % 3) + 1;
+        const size = 50 + depth * 10;
+
+        return (
+          <motion.img
+            key={index}
+            src={src}
+            alt=""
+            style={{
+              position: "absolute",
+              top: pos.top,
+              left: pos.left,
+              width: `${size}px`,
+              opacity: 0.08, // soft ghost effect
+              filter: "invert(1) drop-shadow(0 0 6px rgba(255,255,255,0.15))",
+              pointerEvents: "none",
+              zIndex: 0,
+            }}
+            animate={{
+              x: mouseX / (20 * depth),
+              y: mouseY / (20 * depth),
+              rotate: [0, 3, -3, 0], // very subtle tilt
+            }}
+            transition={{
+              duration: 8 + depth * 2,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+            }}
+          />
+        );
+      })}
+    </>
+  );
+}
+
 function Hero() {
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
+
   return (
     <section
       id="hero"
+      onMouseMove={(e) =>
+        setMouse({
+          x: e.clientX - window.innerWidth / 2,
+          y: e.clientY - window.innerHeight / 2,
+        })
+      }
       style={{
         position: "relative",
         height: "100vh",
+        backgroundColor: "#000",
+        overflow: "hidden",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         textAlign: "center",
         padding: "0 2rem",
+        color: "#fff",
       }}>
-      <ParallaxBackground image="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1920&q=80" />
+      <FloatingIcons
+        mouseX={mouse.x}
+        mouseY={mouse.y}
+      />
+
       <h1
         style={{
           fontWeight: "900",
           fontSize: "4rem",
           letterSpacing: "0.15em",
+          zIndex: 1,
         }}>
         Joe Mazloum
       </h1>
       <div
         className="typewriter"
-        style={{ maxWidth: "90vw", marginTop: "1rem" }}>
+        style={{ maxWidth: "90vw", marginTop: "1rem", zIndex: 1 }}>
         <Typewriter
           words={[
             "Software Engineer.",
@@ -259,7 +361,7 @@ function About() {
       id="about"
       title="About Me"
       text="Passionate software engineer with experience in full-stack development, problem-solving, and delivering scalable solutions."
-      image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
+      image="https://media.licdn.com/dms/image/v2/D4D03AQGWGKVIuh_WuA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707509135939?e=1757548800&v=beta&t=H6h0U9V7NxPENlt62EGIGF9Xi0uifgmX9vFjK-Qw-Uk"
       reverse={false}
     />
   );
