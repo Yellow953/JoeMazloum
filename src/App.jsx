@@ -2,33 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Typewriter } from "react-simple-typewriter";
-
-const parallaxStrength = 0.3;
-
-function useParallax() {
-  const [offsetY, setOffsetY] = useState(0);
-  useEffect(() => {
-    function handleScroll() {
-      setOffsetY(window.pageYOffset);
-    }
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  return offsetY;
-}
-
-function ParallaxBackground({ image, strength = parallaxStrength }) {
-  const offsetY = useParallax();
-  return (
-    <div
-      className="parallax-bg"
-      style={{
-        backgroundImage: `url(${image})`,
-        transform: `translateY(${offsetY * strength}px)`,
-      }}
-    />
-  );
-}
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 function LeftRightSection({ id, title, text, image, reverse = false }) {
   const controlsText = useAnimation();
@@ -43,6 +17,8 @@ function LeftRightSection({ id, title, text, image, reverse = false }) {
       controlsText.start("hidden");
       controlsImage.start("hidden");
     }
+
+    document.body.classList.add("custom_scroller");
   }, [controlsText, controlsImage, inView]);
 
   const variantsText = {
@@ -205,6 +181,7 @@ function Hero() {
         textAlign: "center",
         padding: "0 2rem",
         color: "#fff",
+        maxWidth: "2160px",
       }}>
       <FloatingIcons
         mouseX={mouse.x}
@@ -235,7 +212,7 @@ function Hero() {
           cursorStyle="|"
           typeSpeed={70}
           deleteSpeed={50}
-          delaySpeed={1500}
+          delaySpeed={1000}
         />
       </div>
     </section>
@@ -245,32 +222,39 @@ function Hero() {
 function SkillsSticky() {
   const skills = [
     {
-      name: "JavaScript",
+      name: "PHP & Laravel",
       description:
-        "JavaScript is a versatile scripting language primarily used for client-side web development.",
+        "Expert in developing scalable SaaS platforms, CRMs, and ERPs using Laravel. Delivered multi-currency, multi-language systems and optimized performance for high-traffic applications.",
       image:
-        "https://raw.githubusercontent.com/github/explore/main/topics/javascript/javascript.png",
+        "https://raw.githubusercontent.com/github/explore/main/topics/laravel/laravel.png",
     },
     {
-      name: "React",
+      name: "JavaScript & React",
       description:
-        "React is a popular JavaScript library for building user interfaces using components.",
+        "Proficient in building dynamic SPAs and interactive UIs using React. Experience with offline synchronization, responsive design, and modern frontend workflows.",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/react/react.png",
     },
     {
-      name: "Node.js",
+      name: "Ruby on Rails",
       description:
-        "Node.js allows running JavaScript on the server, enabling full-stack JS development.",
+        "Designed and implemented robust backend features with Ruby on Rails, improving user engagement and ensuring seamless multi-team project delivery.",
       image:
-        "https://raw.githubusercontent.com/github/explore/main/topics/nodejs/nodejs.png",
+        "https://raw.githubusercontent.com/github/explore/main/topics/rails/rails.png",
     },
     {
-      name: "C++",
+      name: "Python & Automation",
       description:
-        "C++ is a powerful, high-performance language commonly used for systems programming.",
+        "Developed advanced automation bots using Python Selenium, reducing manual testing time by 70% and improving bug detection accuracy.",
       image:
-        "https://raw.githubusercontent.com/github/explore/main/topics/cpp/cpp.png",
+        "https://raw.githubusercontent.com/github/explore/main/topics/python/python.png",
+    },
+    {
+      name: "Databases & Server Management",
+      description:
+        "Experienced with MySQL, PostgreSQL, and SQLite. Skilled in Linux server deployments, AWS, Apache, and Nginx for secure and optimized hosting.",
+      image:
+        "https://raw.githubusercontent.com/github/explore/main/topics/mysql/mysql.png",
     },
   ];
   const [activeIndex, setActiveIndex] = useState(0);
@@ -310,12 +294,6 @@ function SkillsSticky() {
               </h2>
               <p style={{ fontSize: "1.25rem", lineHeight: 1.6 }}>
                 {skill.description}
-              </p>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                volutpat dolor vel mauris tempus, vitae luctus metus pulvinar.
-                Praesent varius, lacus ut ultricies malesuada, risus elit
-                pellentesque urna, vitae feugiat libero elit nec nulla.
               </p>
             </section>
           );
@@ -360,7 +338,7 @@ function About() {
     <LeftRightSection
       id="about"
       title="About Me"
-      text="Passionate software engineer with experience in full-stack development, problem-solving, and delivering scalable solutions."
+      text="I’m a passionate software engineer with expertise in building scalable SaaS platforms, CRMs, and ERPs. Skilled in Laravel, React, and full-stack development, I thrive on solving complex problems and delivering polished, high-performance applications. My experience spans from backend architecture and automation to sleek, responsive frontends — always with a focus on usability, efficiency, and quality."
       image="https://media.licdn.com/dms/image/v2/D4D03AQGWGKVIuh_WuA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707509135939?e=1757548800&v=beta&t=H6h0U9V7NxPENlt62EGIGF9Xi0uifgmX9vFjK-Qw-Uk"
       reverse={false}
     />
@@ -368,23 +346,114 @@ function About() {
 }
 
 function Experience() {
+  const experiences = [
+    {
+      role: "PHP Software Developer",
+      company: "Göckler GMBH",
+      date: "Nov 2023 – Oct 2024",
+      description:
+        "Modernized legacy PHP websites and CMS, upgrading from Xtcommerce 5 to 6.5 and Shopware 6, improving platform stability. Optimized performance, reducing load times and boosting sales by 25% through design enhancements, popups, and upsell strategies. Delivered backend and frontend features ahead of schedule, enhancing client satisfaction.",
+    },
+    {
+      role: "Quality Assurance Developer",
+      company: "INTALIO",
+      date: "May 2023 – Oct 2023",
+      description:
+        "Developed a Python Selenium automation bot, reducing manual testing time by 70% and improving bug detection accuracy. Created comprehensive User/Admin guides, reducing support requests by 30%. Enhanced software quality via rigorous testing and detailed test cases.",
+    },
+    {
+      role: "Ruby on Rails Developer",
+      company: "IStay",
+      date: "Oct 2022 – Apr 2023",
+      description:
+        "Built responsive, user-focused front-end websites, increasing engagement by 15%. Designed and implemented robust backend functionalities with Ruby on Rails, ensuring smooth cross-team delivery. Improved workflow integration using Git/GitHub.",
+    },
+    {
+      role: "Laravel Full Stack Developer",
+      company: "Eddy’s Group",
+      date: "2020 – 2021",
+      description:
+        "Architected and deployed CRM and ERP web solutions with Laravel and Bootstrap, improving efficiency by 20%. Developed mobile apps integrated with backend systems, increasing client accessibility. Managed Linux server deployments, decreasing downtime by 15%.",
+    },
+  ];
+
   return (
-    <>
-      <LeftRightSection
-        id="exp1"
-        title="Software Engineer @ Awesome Tech Co"
-        text="Building scalable web applications with React and Node.js."
-        image="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80"
-        reverse={true}
-      />
-      <LeftRightSection
-        id="exp2"
-        title="Junior Developer @ Innovate Solutions"
-        text="Worked on frontend features and bug fixes using JavaScript."
-        image="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
-        reverse={false}
-      />
-    </>
+    <section
+      style={{
+        backgroundColor: "#000",
+        padding: "4rem 2rem",
+        color: "#fff",
+      }}>
+      <h2
+        style={{
+          textAlign: "center",
+          fontSize: "2.5rem",
+          marginBottom: "3rem",
+        }}>
+        Experience
+      </h2>
+      <div
+        style={{ position: "relative", maxWidth: "800px", margin: "0 auto" }}>
+        {/* Timeline line */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: "20px",
+            width: "2px",
+            height: "100%",
+            background: "linear-gradient(to bottom, #888, transparent)",
+          }}></div>
+
+        {experiences.map((exp, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }} // 👈 will trigger every time in view
+            transition={{ duration: 0.6 }}
+            style={{
+              display: "flex",
+              marginBottom: "3rem",
+              position: "relative",
+            }}>
+            {/* Timeline dot */}
+            <div
+              style={{
+                position: "absolute",
+                left: "11px",
+                top: "10px",
+                width: "18px",
+                height: "18px",
+                background: "#fff",
+                borderRadius: "50%",
+                border: "3px solid #555",
+              }}></div>
+
+            {/* Card */}
+            <div
+              style={{
+                background: "#111",
+                padding: "1.5rem",
+                borderRadius: "10px",
+                boxShadow: "0 4px 20px rgba(255,255,255,0.05)",
+                marginLeft: "50px",
+                flex: 1,
+              }}>
+              <h3 style={{ margin: 0, fontSize: "1.5rem" }}>
+                {exp.role} @ {exp.company}
+              </h3>
+              <span style={{ fontSize: "0.9rem", color: "#aaa" }}>
+                {exp.date}
+              </span>
+              <p style={{ marginTop: "0.8rem", lineHeight: 1.6 }}>
+                {exp.description}
+              </p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
   );
 }
 
@@ -436,6 +505,113 @@ function LanguagesMarquee() {
   );
 }
 
+function Footer() {
+  return (
+    <footer
+      style={{
+        height: "100vh",
+        backgroundColor: "#000",
+        color: "#fff",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        padding: "2rem",
+      }}>
+      {/* Name & Tagline */}
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: false }}
+        style={{
+          fontSize: "2.5rem",
+          fontWeight: "900",
+          marginBottom: "0.5rem",
+          letterSpacing: "0.05em",
+        }}>
+        Joe Mazloum
+      </motion.h2>
+
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.1 }}
+        viewport={{ once: false }}
+        style={{
+          fontSize: "1.2rem",
+          color: "#aaa",
+          marginBottom: "2rem",
+        }}>
+        Software Engineer • Problem Solver • Tech Enthusiast
+      </motion.p>
+
+      {/* Social Links */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        viewport={{ once: false }}
+        style={{ display: "flex", gap: "2rem" }}>
+        <a
+          href="https://github.com/Yellow953"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "#fff", fontSize: "2rem" }}>
+          <FaGithub
+            style={{
+              transition: "transform 0.3s ease, color 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.2)";
+              e.currentTarget.style.color = "#888";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.color = "#fff";
+            }}
+          />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/joe-mazloum-ba3604239/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ color: "#fff", fontSize: "2rem" }}>
+          <FaLinkedin
+            style={{
+              transition: "transform 0.3s ease, color 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.2)";
+              e.currentTarget.style.color = "#0A66C2";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.color = "#fff";
+            }}
+          />
+        </a>
+      </motion.div>
+
+      {/* Contact */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+        viewport={{ once: false }}
+        style={{ marginTop: "3rem", fontSize: "1rem", color: "#aaa" }}>
+        📧{" "}
+        <a
+          href="mailto:joemazloum95@gmail.com"
+          style={{ color: "#fff" }}>
+          joemazloum95@gmail.com
+        </a>
+      </motion.div>
+    </footer>
+  );
+}
+
 export default function App() {
   return (
     <>
@@ -444,6 +620,7 @@ export default function App() {
       <SkillsSticky />
       <LanguagesMarquee />
       <Experience />
+      <Footer />
     </>
   );
 }

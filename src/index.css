@@ -1,3 +1,9 @@
+:root {
+  --primary-color: #4db6ff;
+  --light-primary-color: #9ad6ff;
+  --darkest-primary-color: #000;
+}
+
 /* Reset */
 * {
   margin: 0;
@@ -31,7 +37,6 @@ section {
   margin: 0 auto;
 }
 
-/* Parallax background overlay */
 .parallax-bg {
   position: fixed;
   top: 0;
@@ -46,7 +51,6 @@ section {
   will-change: transform;
 }
 
-/* Simple typewriter styling */
 .typewriter {
   font-weight: 700;
   font-size: 3rem;
@@ -56,4 +60,30 @@ section {
   overflow: hidden;
   width: fit-content;
   margin: 1rem auto 0 auto;
+}
+
+/* Scroller */
+body.custom_scroller {
+  scrollbar-width: thin;
+  scrollbar-color: #cfcfcf transparent;
+}
+
+body.custom_scroller::-webkit-scrollbar {
+  width: 10px;
+}
+
+body.custom_scroller::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+body.custom_scroller::-webkit-scrollbar-thumb {
+  background-color: #cfcfcf;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: background-color 0.2s ease;
+}
+
+body.custom_scroller::-webkit-scrollbar-thumb:hover {
+  background-color: #a8a8a8;
 }
