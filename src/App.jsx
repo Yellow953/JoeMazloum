@@ -1,75 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Typewriter } from "react-simple-typewriter";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-
-function LeftRightSection({ id, title, text, image, reverse = false }) {
-  const controlsText = useAnimation();
-  const controlsImage = useAnimation();
-  const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: false });
-
-  useEffect(() => {
-    if (inView) {
-      controlsText.start("visible");
-      controlsImage.start("visible");
-    } else {
-      controlsText.start("hidden");
-      controlsImage.start("hidden");
-    }
-
-    document.body.classList.add("custom_scroller");
-  }, [controlsText, controlsImage, inView]);
-
-  const variantsText = {
-    hidden: { opacity: 0, x: reverse ? 100 : -100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-  };
-
-  const variantsImage = {
-    hidden: { opacity: 0, x: reverse ? -100 : 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
-  };
-
-  return (
-    <section
-      id={id}
-      ref={ref}
-      style={{
-        display: "flex",
-        flexDirection: reverse ? "row-reverse" : "row",
-        alignItems: "center",
-        gap: "3rem",
-        padding: "6rem 2rem",
-        maxWidth: 900,
-        margin: "0 auto",
-      }}>
-      <motion.div
-        style={{ flex: 1 }}
-        initial="hidden"
-        animate={controlsText}
-        variants={variantsText}>
-        <h2 style={{ marginBottom: "1rem" }}>{title}</h2>
-        <p style={{ fontSize: "1.2rem", lineHeight: 1.6 }}>{text}</p>
-      </motion.div>
-      <motion.div
-        style={{ flex: 1 }}
-        initial="hidden"
-        animate={controlsImage}
-        variants={variantsImage}>
-        <img
-          src={image}
-          alt={title}
-          style={{
-            width: "100%",
-            borderRadius: "15px",
-            boxShadow: "0 0 15px #fff",
-          }}
-        />
-      </motion.div>
-    </section>
-  );
-}
 
 const floatingIcons = [
   {
@@ -157,57 +90,108 @@ function FloatingIcons({ mouseX, mouseY }) {
   );
 }
 
+function LeftRightSection({ id, title, text, image, reverse = false }) {
+  const controlsText = useAnimation();
+  const controlsImage = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: false });
+
+  useEffect(() => {
+    if (inView) {
+      controlsText.start("visible");
+      controlsImage.start("visible");
+    } else {
+      controlsText.start("hidden");
+      controlsImage.start("hidden");
+    }
+    document.body.classList.add("custom_scroller");
+  }, [controlsText, controlsImage, inView]);
+
+  const variantsText = {
+    hidden: { opacity: 0, x: reverse ? 100 : -100 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+  };
+
+  const variantsImage = {
+    hidden: { opacity: 0, x: reverse ? -100 : 100 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+  };
+
+  return (
+    <section
+      id={id}
+      ref={ref}
+      className={`left-right-section${reverse ? " reverse" : ""}`}>
+      <motion.div
+        className="lr-text"
+        initial="hidden"
+        animate={controlsText}
+        variants={variantsText}>
+        <h2 style={{ marginBottom: "1rem", textAlign: "center" }}>{title}</h2>
+
+        <p className="lr-p">
+          I’m <strong>Joe Mazloum</strong>, a passionate software engineer
+          specializing in building scalable SaaS platforms, CRMs, and ERPs. My
+          expertise spans <strong>Laravel</strong>, <strong>React</strong>, and
+          full-stack development, with a proven track record in
+          high-performance, user-friendly apps.
+        </p>
+        <p className="lr-p">
+          I’ve delivered solutions across Europe and the Middle East—modernizing
+          legacy systems, improving performance, and shipping polished products.
+          Expect clean code, efficient systems, and a collaborative partner.
+        </p>
+      </motion.div>
+
+      <motion.div
+        className="lr-image"
+        initial="hidden"
+        animate={controlsImage}
+        variants={variantsImage}>
+        <img
+          src={image}
+          alt={title}
+          loading="lazy"
+          decoding="async"
+          style={{
+            width: "100%",
+            borderRadius: 15,
+            boxShadow: "0 0 15px #fff",
+          }}
+        />
+      </motion.div>
+    </section>
+  );
+}
+
 function Hero() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
   return (
     <section
       id="hero"
+      className="hero-section"
       onMouseMove={(e) =>
         setMouse({
           x: e.clientX - window.innerWidth / 2,
           y: e.clientY - window.innerHeight / 2,
         })
-      }
-      style={{
-        position: "relative",
-        height: "100vh",
-        backgroundColor: "#000",
-        overflow: "hidden",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
-        padding: "0 2rem",
-        color: "#fff",
-        maxWidth: "2160px",
-      }}>
+      }>
       <FloatingIcons
         mouseX={mouse.x}
         mouseY={mouse.y}
       />
 
-      <h1
-        style={{
-          fontWeight: "900",
-          fontSize: "4rem",
-          letterSpacing: "0.15em",
-          zIndex: 1,
-        }}>
-        Joe Mazloum
-      </h1>
-      <div
-        className="typewriter"
-        style={{ maxWidth: "90vw", marginTop: "1rem", zIndex: 1 }}>
+      <h1 className="hero-title">Joe Mazloum</h1>
+
+      <div className="typewriter hero-typewriter">
         <Typewriter
           words={[
-            "Software Engineer.",
-            "Problem Solver.",
-            "Tech Enthusiast.",
-            "Lifelong Learner.",
+            "Hi, I’m Joe Mazloum.",
+            "I build scalable SaaS platforms.",
+            "Full-Stack Developer with Laravel.",
+            "Problem Solver & Tech Enthusiast.",
           ]}
-          loop={true}
+          loop
           cursor
           cursorStyle="|"
           typeSpeed={70}
@@ -257,75 +241,56 @@ function SkillsSticky() {
         "https://raw.githubusercontent.com/github/explore/main/topics/mysql/mysql.png",
     },
   ];
+
   const [activeIndex, setActiveIndex] = useState(0);
+  const refs = useRef([]);
+
+  // Observe all sections at once
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const newIndex = Number(entry.target.dataset.index);
+            if (newIndex !== activeIndex) {
+              setActiveIndex(newIndex);
+            }
+          }
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    refs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      refs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, [activeIndex]);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        maxWidth: 1200,
-        margin: "0 auto",
-        color: "#eee",
-        minHeight: "100vh",
-        position: "relative",
-        padding: "2rem",
-        gap: "3rem",
-      }}>
-      <div style={{ flex: 1 }}>
-        {skills.map((skill, index) => {
-          const [ref, inView] = useInView({
-            threshold: 0.6,
-          });
-
-          if (inView && activeIndex !== index) {
-            setActiveIndex(index);
-          }
-
-          return (
-            <section
-              key={skill.name}
-              ref={ref}
-              style={{
-                marginBottom: "50vh",
-                paddingBottom: "2rem",
-              }}>
-              <h2 style={{ fontSize: "3rem", marginBottom: "1rem" }}>
-                {skill.name}
-              </h2>
-              <p style={{ fontSize: "1.25rem", lineHeight: 1.6 }}>
-                {skill.description}
-              </p>
-            </section>
-          );
-        })}
+    <div className="skills-container">
+      <div className="skills-list">
+        {skills.map((skill, index) => (
+          <section
+            key={skill.name}
+            ref={(el) => (refs.current[index] = el)}
+            data-index={index}
+            className="skill-item">
+            <h2>{skill.name}</h2>
+            <p>{skill.description}</p>
+          </section>
+        ))}
       </div>
 
-      <div
-        style={{
-          flexBasis: "40%",
-          position: "sticky",
-          top: "2rem",
-          height: "calc(100vh - 4rem)",
-          alignSelf: "start",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "#111",
-          borderRadius: "15px",
-          padding: "1rem",
-          boxShadow: "0 0 30px rgba(255,255,255,0.1)",
-        }}>
+      <div className="skills-image">
         <img
           src={skills[activeIndex].image}
           alt={skills[activeIndex].name}
-          style={{
-            maxHeight: "80vh",
-            maxWidth: "100%",
-            objectFit: "contain",
-            borderRadius: "15px",
-            userSelect: "none",
-            pointerEvents: "none",
-          }}
           draggable={false}
         />
       </div>
@@ -337,8 +302,7 @@ function About() {
   return (
     <LeftRightSection
       id="about"
-      title="About Me"
-      text="I’m a passionate software engineer with expertise in building scalable SaaS platforms, CRMs, and ERPs. Skilled in Laravel, React, and full-stack development, I thrive on solving complex problems and delivering polished, high-performance applications. My experience spans from backend architecture and automation to sleek, responsive frontends — always with a focus on usability, efficiency, and quality."
+      title="About Joe Mazloum"
       image="https://media.licdn.com/dms/image/v2/D4D03AQGWGKVIuh_WuA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707509135939?e=1757548800&v=beta&t=H6h0U9V7NxPENlt62EGIGF9Xi0uifgmX9vFjK-Qw-Uk"
       reverse={false}
     />
@@ -380,7 +344,7 @@ function Experience() {
   return (
     <section
       style={{
-        backgroundColor: "#000",
+        background: "linear-gradient(180deg, #000, #111)",
         padding: "4rem 2rem",
         color: "#fff",
       }}>
@@ -410,7 +374,7 @@ function Experience() {
             key={index}
             initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }} // 👈 will trigger every time in view
+            viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6 }}
             style={{
               display: "flex",
@@ -421,10 +385,10 @@ function Experience() {
             <div
               style={{
                 position: "absolute",
-                left: "11px",
-                top: "10px",
-                width: "18px",
-                height: "18px",
+                left: "8px",
+                top: "50px",
+                width: "25px",
+                height: "25px",
                 background: "#fff",
                 borderRadius: "50%",
                 border: "3px solid #555",
@@ -432,6 +396,7 @@ function Experience() {
 
             {/* Card */}
             <div
+              className="experience-card"
               style={{
                 background: "#111",
                 padding: "1.5rem",
@@ -524,27 +489,29 @@ function Footer() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: false }}
         style={{
           fontSize: "2.5rem",
           fontWeight: "900",
           marginBottom: "0.5rem",
           letterSpacing: "0.05em",
         }}>
-        Joe Mazloum
+        Connect with Joe Mazloum
       </motion.h2>
 
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1 }}
-        viewport={{ once: false }}
         style={{
           fontSize: "1.2rem",
           color: "#aaa",
           marginBottom: "2rem",
+          maxWidth: "700px",
         }}>
-        Software Engineer • Problem Solver • Tech Enthusiast
+        I’m always open to discussing new projects, creative ideas, or
+        opportunities to be part of your vision. Whether you’re looking for a
+        <strong> Laravel expert</strong>, <strong>React developer</strong>, or a
+        skilled full-stack engineer, I’d love to hear from you.
       </motion.p>
 
       {/* Social Links */}
@@ -552,60 +519,20 @@ function Footer() {
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        viewport={{ once: false }}
         style={{ display: "flex", gap: "2rem" }}>
         <a
           href="https://github.com/Yellow953"
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: "#fff", fontSize: "2rem" }}>
-          <FaGithub
-            style={{
-              transition: "transform 0.3s ease, color 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "scale(1.2)";
-              e.currentTarget.style.color = "#888";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.color = "#fff";
-            }}
-          />
+          <FaGithub />
         </a>
         <a
           href="https://www.linkedin.com/in/joe-mazloum-ba3604239/"
           target="_blank"
           rel="noopener noreferrer"
           style={{ color: "#fff", fontSize: "2rem" }}>
-          <FaLinkedin
-            style={{
-              transition: "transform 0.3s ease, color 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "scale(1.2)";
-              e.currentTarget.style.color = "#0A66C2";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.color = "#fff";
-            }}
-          />
-        </a>
-      </motion.div>
-
-      {/* Contact */}
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        viewport={{ once: false }}
-        style={{ marginTop: "3rem", fontSize: "1rem", color: "#aaa" }}>
-        📧{" "}
-        <a
-          href="mailto:joemazloum95@gmail.com"
-          style={{ color: "#fff" }}>
-          joemazloum95@gmail.com
+          <FaLinkedin />
         </a>
       </motion.div>
     </footer>
