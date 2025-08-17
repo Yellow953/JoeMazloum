@@ -135,6 +135,10 @@ footer {
   .typewriter {
     font-size: clamp(1.2rem, 5vw, 2rem);
   }
+  .hero-typewriter {
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
   .left-right-section,
   .left-right-section.reverse {
     flex-direction: column;
