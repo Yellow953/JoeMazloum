@@ -4,50 +4,25 @@ import { useInView } from "react-intersection-observer";
 import { Typewriter } from "react-simple-typewriter";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-const floatingIcons = [
-  {
-    src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg",
-    size: 50,
-  },
-  {
-    src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg",
-    size: 60,
-  },
-  {
-    src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/laravel.svg",
-    size: 60,
-  },
-  {
-    src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg",
-    size: 55,
-  },
-  {
-    src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg",
-    size: 50,
-  },
-  {
-    src: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/css3.svg",
-    size: 50,
-  },
-];
-
 function FloatingIcons({ mouseX, mouseY }) {
   const icons = [
     "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg",
     "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg",
     "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/laravel.svg",
     "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg",
-    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/html5.svg",
-    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/css3.svg",
+    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/flutter.svg",
+    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg",
+    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg",
   ];
 
   const positions = [
-    { top: "15%", left: "20%" },
-    { top: "30%", left: "75%" },
-    { top: "60%", left: "15%" },
-    { top: "80%", left: "50%" },
-    { top: "40%", left: "40%" },
-    { top: "70%", left: "75%" },
+    { top: "10%", left: "15%" },
+    { top: "10%", left: "70%" },
+    { top: "35%", left: "90%" },
+    { top: "40%", left: "25%" },
+    { top: "65%", left: "50%" },
+    { top: "70%", left: "5%" },
+    { top: "75%", left: "80%" },
   ];
 
   return (
@@ -67,7 +42,7 @@ function FloatingIcons({ mouseX, mouseY }) {
               top: pos.top,
               left: pos.left,
               width: `${size}px`,
-              opacity: 0.08, // soft ghost effect
+              opacity: 0.25,
               filter: "invert(1) drop-shadow(0 0 6px rgba(255,255,255,0.15))",
               pointerEvents: "none",
               zIndex: 0,
@@ -75,13 +50,12 @@ function FloatingIcons({ mouseX, mouseY }) {
             animate={{
               x: mouseX / (20 * depth),
               y: mouseY / (20 * depth),
-              rotate: [0, 3, -3, 0], // very subtle tilt
+              rotate: 360,
             }}
             transition={{
-              duration: 8 + depth * 2,
+              duration: 20 + depth * 5,
               repeat: Infinity,
-              repeatType: "reverse",
-              ease: "easeInOut",
+              ease: "linear",
             }}
           />
         );
@@ -130,10 +104,10 @@ function LeftRightSection({ id, title, text, image, reverse = false }) {
 
         <p className="lr-p">
           I’m <strong>Joe Mazloum</strong>, a passionate software engineer
-          specializing in building scalable SaaS platforms, CRMs, and ERPs. My
-          expertise spans <strong>Laravel</strong>, <strong>React</strong>, and
-          full-stack development, with a proven track record in
-          high-performance, user-friendly apps.
+          specializing in building scalable SaaS platforms, CRMs, ERPs and
+          mobile apps. My expertise spans <strong>Laravel</strong>,{" "}
+          <strong>Flutter</strong>, and full-stack development, with a proven
+          track record in high-performance, user-friendly apps and systems.
         </p>
         <p className="lr-p">
           I’ve delivered solutions across Europe and the Middle East—modernizing
@@ -240,12 +214,41 @@ function SkillsSticky() {
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/mysql/mysql.png",
     },
+    {
+      name: "Flutter",
+      description:
+        "Built mobile applications with Flutter, ensuring smooth cross-platform performance and native-like user experiences. Delivered apps that integrated with backend systems for real-time updates or with firebase.",
+      image:
+        "https://raw.githubusercontent.com/github/explore/main/topics/flutter/flutter.png",
+    },
+    {
+      name: "Shopify",
+      description:
+        "Customized Shopify stores and themes, optimized product pages, and integrated upselling strategies. Improved performance and conversions with tailored e-commerce solutions.",
+      image:
+        "https://cdn.freebiesupply.com/logos/large/2x/shopify-logo-png-transparent.png",
+    },
+    {
+      name: "Server Deployments (Git, AWS, Linux)",
+      description:
+        "Proficient in deploying and managing applications on Linux servers using Git, AWS, Apache, and Nginx. Automated deployments and monitoring, reducing downtime and ensuring secure, optimized hosting environments.",
+      image:
+        "https://raw.githubusercontent.com/github/explore/main/topics/linux/linux.png",
+    },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
   const refs = useRef([]);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Observe all sections at once
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -273,26 +276,56 @@ function SkillsSticky() {
   }, [activeIndex]);
 
   return (
-    <div className="skills-container">
-      <div className="skills-list">
-        {skills.map((skill, index) => (
-          <section
-            key={skill.name}
-            ref={(el) => (refs.current[index] = el)}
-            data-index={index}
-            className="skill-item">
-            <h2>{skill.name}</h2>
-            <p>{skill.description}</p>
-          </section>
-        ))}
-      </div>
+    <div>
+      <h2
+        style={{
+          textAlign: "center",
+          fontSize: "3rem",
+        }}>
+        Skills
+      </h2>
+      <div className="skills-container">
+        <div className="skills-list">
+          {skills.map((skill, index) => (
+            <section
+              key={skill.name}
+              ref={(el) => (refs.current[index] = el)}
+              data-index={index}
+              className="skill-item"
+              style={index === 0 && !isMobile ? { marginTop: "25vh" } : {}}>
+              <h2>{skill.name}</h2>
+              <p>{skill.description}</p>
 
-      <div className="skills-image">
-        <img
-          src={skills[activeIndex].image}
-          alt={skills[activeIndex].name}
-          draggable={false}
-        />
+              {isMobile && (
+                <img
+                  src={skill.image}
+                  alt={skill.name}
+                  draggable={false}
+                  style={{
+                    margin: "2rem auto",
+                    width: "100px",
+                    height: "100px",
+                    display: "block",
+                  }}
+                />
+              )}
+            </section>
+          ))}
+        </div>
+
+        {!isMobile && (
+          <div className="skills-image">
+            <img
+              src={skills[activeIndex].image}
+              alt={skills[activeIndex].name}
+              draggable={false}
+              style={{
+                width: "300px",
+                height: "300px",
+              }}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -510,8 +543,8 @@ function Footer() {
         }}>
         I’m always open to discussing new projects, creative ideas, or
         opportunities to be part of your vision. Whether you’re looking for a
-        <strong> Laravel expert</strong>, <strong>React developer</strong>, or a
-        skilled full-stack engineer, I’d love to hear from you.
+        <strong> Laravel expert</strong>, <strong>Mobile developer</strong>, or
+        a skilled full-stack engineer, I’d love to hear from you.
       </motion.p>
 
       {/* Social Links */}

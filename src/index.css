@@ -91,12 +91,12 @@ a:hover {
   flex: 1;
 }
 .skill-item {
-  margin-bottom: 50vh;
+  margin-bottom: 75vh;
+  margin-top: 75vh;
   padding-bottom: 2rem;
 }
 .skill-item h2 {
   font-size: 2rem;
-  color: var(--light-primary-color);
 }
 .skill-item p {
   font-size: 1.1rem;
@@ -144,6 +144,10 @@ footer {
   }
   .skills-container {
     flex-direction: column;
+  }
+  .skill-item {
+    margin-bottom: 10vh;
+    margin-top: 10vh;
   }
   .skills-image {
     position: static;
