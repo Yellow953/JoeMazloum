@@ -277,13 +277,36 @@ function SkillsSticky() {
 
   return (
     <div>
-      <h2
-        style={{
-          textAlign: "center",
-          fontSize: "3rem",
-        }}>
-        Skills
-      </h2>
+      <div className="d-flex justify-content-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          style={{
+            textAlign: "center",
+            fontSize: "3rem",
+            fontWeight: "900",
+            letterSpacing: "0.05em",
+            position: "relative",
+            display: "inline-block",
+            margin: "2rem auto",
+          }}>
+          SKILLS
+          <motion.span
+            initial={{ width: 0 }}
+            whileInView={{ width: "100%" }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            style={{
+              position: "absolute",
+              bottom: -8,
+              left: 0,
+              height: "4px",
+              backgroundColor: "#ffffff",
+              borderRadius: "2px",
+            }}
+          />
+        </motion.h2>
+      </div>
       <div className="skills-container">
         <div className="skills-list">
           {skills.map((skill, index) => (
@@ -293,8 +316,31 @@ function SkillsSticky() {
               data-index={index}
               className="skill-item"
               style={index === 0 && !isMobile ? { marginTop: "25vh" } : {}}>
-              <h2>{skill.name}</h2>
-              <p>{skill.description}</p>
+              <motion.h2
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                viewport={{ amount: 0.5 }}
+                style={{
+                  marginBottom: "1rem",
+                  fontSize: "2rem",
+                  fontWeight: "700",
+                }}>
+                {skill.name}
+              </motion.h2>
+
+              <motion.p
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+                viewport={{ amount: 0.5 }}
+                style={{
+                  fontSize: "1.1rem",
+                  lineHeight: "1.6",
+                  color: "#ccc",
+                }}>
+                {skill.description}
+              </motion.p>
 
               {isMobile && (
                 <img
@@ -519,7 +565,6 @@ function Footer() {
         position: "relative",
         overflow: "hidden",
       }}>
-      {/* Animated background glow */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: [0.2, 0.5, 0.2] }}
@@ -538,7 +583,6 @@ function Footer() {
         }}
       />
 
-      {/* Name & Tagline */}
       <motion.h2
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -598,11 +642,11 @@ function Footer() {
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "#fff", fontSize: "2rem" }}
+            style={{ color: "#ffffffa9", fontSize: "2rem" }}
             whileHover={{
               scale: 1.2,
-              color: "#4db6ff",
-              textShadow: "0 0 12px #4db6ff",
+              color: "#fff",
+              textShadow: "0 0 12px #fff",
             }}>
             {link.icon}
           </motion.a>
