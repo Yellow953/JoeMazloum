@@ -150,8 +150,13 @@ footer {
     flex-direction: column;
   }
   .skill-item {
-    margin-bottom: 10vh;
-    margin-top: 10vh;
+    margin: 0 0 2rem 0 !important;
+    padding: 0;
+  }
+  .skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
   .skills-image {
     position: static;

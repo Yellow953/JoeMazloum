@@ -316,44 +316,74 @@ function SkillsSticky() {
               data-index={index}
               className="skill-item"
               style={index === 0 && !isMobile ? { marginTop: "25vh" } : {}}>
-              <motion.h2
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                viewport={{ amount: 0.5 }}
-                style={{
-                  marginBottom: "1rem",
-                  fontSize: "2rem",
-                  fontWeight: "700",
-                }}>
-                {skill.name}
-              </motion.h2>
+              {!isMobile && (
+                <div>
+                  <motion.h2
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    viewport={{ amount: 0.5 }}
+                    style={{
+                      marginBottom: "1rem",
+                      fontSize: "2rem",
+                      fontWeight: "700",
+                    }}>
+                    {skill.name}
+                  </motion.h2>
 
-              <motion.p
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
-                viewport={{ amount: 0.5 }}
-                style={{
-                  fontSize: "1.1rem",
-                  lineHeight: "1.6",
-                  color: "#ccc",
-                }}>
-                {skill.description}
-              </motion.p>
+                  <motion.p
+                    initial={{ opacity: 0, x: -40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+                    viewport={{ amount: 0.5 }}
+                    style={{
+                      fontSize: "1.1rem",
+                      lineHeight: "1.6",
+                      color: "#ccc",
+                    }}>
+                    {skill.description}
+                  </motion.p>
+                </div>
+              )}
 
               {isMobile && (
-                <img
-                  src={skill.image}
-                  alt={skill.name}
-                  draggable={false}
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  viewport={{ amount: 0.4 }}
                   style={{
-                    margin: "2rem auto",
-                    width: "200px",
-                    height: "200px",
-                    display: "block",
-                  }}
-                />
+                    margin: "1.5rem auto",
+                    padding: "1.5rem",
+                    borderRadius: "12px",
+                    background: "linear-gradient(145deg, #111, #1a1a1a)",
+                    boxShadow: "0 6px 20px rgba(0,0,0,0.4)",
+                    maxWidth: "90%",
+                    textAlign: "center",
+                  }}>
+                  <img
+                    src={skill.image}
+                    alt={skill.name}
+                    draggable={false}
+                    style={{
+                      margin: "0 auto 1rem",
+                      width: "80px",
+                      height: "80px",
+                      objectFit: "contain",
+                    }}
+                  />
+                  <h3 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>
+                    {skill.name}
+                  </h3>
+                  <p
+                    style={{
+                      fontSize: "1rem",
+                      lineHeight: "1.5",
+                      color: "#ccc",
+                    }}>
+                    {skill.description}
+                  </p>
+                </motion.div>
               )}
             </section>
           ))}
