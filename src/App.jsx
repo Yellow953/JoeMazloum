@@ -182,42 +182,42 @@ function SkillsSticky() {
     {
       name: "PHP & Laravel",
       description:
-        "Expert in developing scalable SaaS platforms, CRMs, and ERPs using Laravel. Delivered multi-currency, multi-language systems and optimized performance for high-traffic applications.",
+        "Expert in architecting and developing scalable SaaS platforms, backend systems, and full-stack web applications using Laravel. Delivered multi-currency and multi-language CRMs and ERPs, optimized for high-traffic environments with API integrations. Designed modular architectures to support rapid feature expansion, improving maintainability and scalability. Implemented secure authentication, role-based access, and third-party service integrations, ensuring enterprise-grade performance and reliability.",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/laravel/laravel.png",
     },
     {
       name: "JavaScript & React",
       description:
-        "Proficient in building dynamic SPAs and interactive UIs using React. Experience with offline synchronization, responsive design, and modern frontend workflows.",
+        "Proficient in building dynamic Single Page Applications (SPAs) and interactive, user-friendly interfaces using React. Experienced in implementing offline synchronization, responsive design, and state management. Skilled in modern frontend workflows, smooth animations and transitions with Framer Motion, enhancing overall user experience. Focused on delivering optimized, modern and scalable UI solutions that enhance user engagement.",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/react/react.png",
     },
     {
       name: "Ruby on Rails",
       description:
-        "Designed and implemented robust backend features with Ruby on Rails, improving user engagement and ensuring seamless multi-team project delivery.",
+        "Designed and implemented robust backend features with Ruby on Rails, enabling scalable and maintainable applications. Improved user engagement by optimizing APIs, database queries, and background jobs. Collaborated across multiple teams to ensure seamless integration and on-time project delivery, while maintaining high code quality through testing, version control, and CI/CD workflows.",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/rails/rails.png",
     },
     {
-      name: "Python & Automation",
+      name: "Python",
       description:
-        "Developed advanced automation bots using Python Selenium, reducing manual testing time by 70% and improving bug detection accuracy.",
+        "Developed advanced automation bots using Python and Selenium, reducing manual testing time by 70% and improving bug detection accuracy. Built a wide range of applications with Python, including web backends with Django, interactive applications and games with Pygame, and automation scripts for general-purpose tasks. Delivered clean, modular, and scalable code.",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/python/python.png",
     },
     {
-      name: "Databases & Server Management",
+      name: "Database",
       description:
-        "Experienced with MySQL, PostgreSQL, and SQLite. Skilled in Linux server deployments, AWS, Apache, and Nginx for secure and optimized hosting.",
+        "Skilled in designing and managing databases with MySQL, PostgreSQL, and SQLite. Experienced in Laravel migrations, seeders, factories, and data import/export, with a focus on performance, scalability, and maintainable schema design for web and mobile applications.",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/mysql/mysql.png",
     },
     {
       name: "Flutter",
       description:
-        "Built mobile applications with Flutter, ensuring smooth cross-platform performance and native-like user experiences. Delivered apps that integrated with backend systems for real-time updates or with firebase.",
+        "Built cross-platform mobile applications with Flutter, delivering smooth, native-like user experiences. Applied MVC architecture for maintainable code structure and GetX for state management, routing, and dependency injection. Integrated apps with backend systems for real-time updates and Firebase services, ensuring responsive, scalable, and efficient mobile solutions.",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/flutter/flutter.png",
     },
@@ -231,7 +231,7 @@ function SkillsSticky() {
     {
       name: "Server Deployments (Git, AWS, Linux)",
       description:
-        "Proficient in deploying and managing applications on Linux servers using Git, AWS, Apache, and Nginx. Automated deployments and monitoring, reducing downtime and ensuring secure, optimized hosting environments.",
+        "Proficient in deploying and managing applications across AWS cloud infrastructure and traditional shared hosting providers. Skilled with AWS EC2, S3, Route53, VPS, Load Balancers, and Auto Scaling groups, ensuring high availability, security, and cost optimization. Configured and maintained Linux servers using Git, Apache, and Nginx, with automated CI/CD pipelines. Experienced in setting up shared hosting environments on platforms like InMotion Hosting, Bluehost, Hostinger, and GoDaddy...",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/linux/linux.png",
     },
@@ -420,6 +420,13 @@ function About() {
 
 function Experience() {
   const experiences = [
+    {
+      role: "Lead Software Engineer",
+      company: "DoorEast",
+      date: "Jan 2025 – now",
+      description:
+        "Led development of a large-scale real estate marketplace, delivering a seamless user experience across Angular web and Flutter mobile applications. Built and maintained a Laravel backend powering advanced property search, listings, and transactions. Deployed and scaled infrastructure on AWS (Route53, S3, EC2, VPS) with load balancing and auto-scaling, ensuring high availability and performance. Improved deployment pipelines and system reliability, supporting thousands of active users.",
+    },
     {
       role: "PHP Software Developer",
       company: "Göckler GMBH",
