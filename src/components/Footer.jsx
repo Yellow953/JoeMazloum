@@ -86,7 +86,7 @@ function Footer() {
             icon: <FaGithub />,
           },
           {
-            href: "https://www.linkedin.com/in/joe-mazloum-ba3604239/",
+            href: "https://www.linkedin.com/in/joe-mazloum/",
             icon: <FaLinkedin />,
           },
         ].map((link, i) => (
