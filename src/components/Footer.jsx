@@ -63,8 +63,10 @@ function Footer() {
         }}>
         I’m always open to discussing new projects, creative ideas, or
         opportunities to be part of your vision. Whether you’re looking for a
-        <strong> Laravel expert</strong>, <strong>Mobile developer</strong>, or
-        a skilled full-stack engineer, I’d love to hear from you.
+        <strong> Laravel expert</strong>,{" "}
+        <strong>AI integration specialist</strong>,{" "}
+        <strong>Mobile developer</strong>, or a skilled full-stack engineer,
+        I’d love to hear from you.
       </motion.p>
 
       {/* Social Links */}

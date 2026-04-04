@@ -7,7 +7,7 @@ function SkillsSticky() {
     {
       name: "PHP & Laravel",
       description:
-        "Expert in architecting and developing scalable SaaS platforms, backend systems, and full-stack web applications using Laravel. Delivered multi-currency and multi-language CRMs and ERPs, optimized for high-traffic environments with API integrations. Designed modular architectures to support rapid feature expansion, improving maintainability and scalability. Implemented secure authentication, role-based access, and third-party service integrations, ensuring enterprise-grade performance and reliability.",
+        "Expert in architecting and developing scalable SaaS platforms, backend systems, and full-stack web applications using Laravel. Built and shipped SaaS products from the ground up, and developed numerous inventory management, accounting systems, and POS (Point of Sale) solutions tailored to business needs. Delivered multi-currency and multi-language CRMs and ERPs, optimized for high-traffic environments with API integrations. Designed modular architectures to support rapid feature expansion, improving maintainability and scalability. Implemented secure authentication, role-based access, and third-party service integrations, ensuring enterprise-grade performance and reliability.",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/laravel/laravel.png",
     },
@@ -28,7 +28,7 @@ function SkillsSticky() {
     {
       name: "Python",
       description:
-        "Developed advanced automation bots using Python and Selenium, reducing manual testing time by 70% and improving bug detection accuracy. Built a wide range of applications with Python, including web backends with Django, interactive applications and games with Pygame, and automation scripts for general-purpose tasks. Delivered clean, modular, and scalable code.",
+        "Developed advanced automation bots using Python and Selenium, reducing manual testing time by 70% and improving bug detection accuracy. Built robust web backends with Django, including RESTful APIs and admin dashboards. Created scrapers for booking and flights websites, extracting and processing large datasets efficiently. Developed crypto trading bots leveraging machine learning and data analysis to identify patterns and automate trading decisions. Also built interactive applications with Pygame and general-purpose automation scripts. Delivered clean, modular, and scalable code.",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/python/python.png",
     },
@@ -42,7 +42,7 @@ function SkillsSticky() {
     {
       name: "Flutter",
       description:
-        "Built cross-platform mobile applications with Flutter, delivering smooth, native-like user experiences. Applied MVC architecture for maintainable code structure and GetX for state management, routing, and dependency injection. Integrated apps with backend systems for real-time updates and Firebase services, ensuring responsive, scalable, and efficient mobile solutions.",
+        "Built cross-platform mobile applications with Flutter, delivering smooth, native-like user experiences. Applied MVC architecture for maintainable code structure and GetX for state management, routing, and dependency injection. Integrated apps with backend systems for real-time updates and Firebase services. Integrated AI chatbots into mobile apps to enhance user interaction and deliver intelligent, context-aware experiences. Ensuring responsive, scalable, and efficient mobile solutions.",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/flutter/flutter.png",
     },
@@ -54,11 +54,18 @@ function SkillsSticky() {
         "https://cdn.freebiesupply.com/logos/large/2x/shopify-logo-png-transparent.png",
     },
     {
-      name: "Server Deployments (Git, AWS, Linux)",
+      name: "Server Deployments (Git, AWS, Linux, Cloudflare)",
       description:
-        "Proficient in deploying and managing applications across AWS cloud infrastructure and traditional shared hosting providers. Skilled with AWS EC2, S3, Route53, VPS, Load Balancers, and Auto Scaling groups, ensuring high availability, security, and cost optimization. Configured and maintained Linux servers using Git, Apache, and Nginx, with automated CI/CD pipelines. Experienced in setting up shared hosting environments on platforms like InMotion Hosting, Bluehost, Hostinger, and GoDaddy...",
+        "Proficient in deploying and managing applications across AWS cloud infrastructure and traditional shared hosting providers. Skilled with AWS EC2, S3, Route53, VPS, Load Balancers, and Auto Scaling groups, ensuring high availability, security, and cost optimization. Configured and maintained Linux servers using Git, Apache, and Nginx, with automated CI/CD pipelines. Leveraged Cloudflare for DNS management, CDN, DDoS protection, and performance optimization. Experienced with Server-Side Rendering (SSR) setups to improve SEO and initial load performance. Also experienced in shared hosting environments on platforms like InMotion Hosting, Bluehost, Hostinger, and GoDaddy.",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/linux/linux.png",
+    },
+    {
+      name: "AI & Automation (Claude, n8n)",
+      description:
+        "Integrated AI capabilities into web and mobile applications using Claude (Anthropic) and other LLM APIs, enabling intelligent features such as natural language processing, content generation, and smart assistants. Leveraged Claude Code for AI-assisted development workflows. Built automation pipelines with n8n, connecting APIs, databases, and services to streamline business processes and reduce manual overhead. Experienced in prompt engineering, tool use, and building production-ready AI-powered features.",
+      image:
+        "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/anthropic.svg",
     },
   ];
 
@@ -195,6 +202,7 @@ function SkillsSticky() {
                       width: "80px",
                       height: "80px",
                       objectFit: "contain",
+                      filter: skill.image.endsWith(".svg") ? "invert(1)" : "none",
                     }}
                   />
                   <h3 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>
@@ -223,6 +231,7 @@ function SkillsSticky() {
               style={{
                 width: "300px",
                 height: "300px",
+                filter: skills[activeIndex].image.endsWith(".svg") ? "invert(1)" : "none",
               }}
             />
           </div>

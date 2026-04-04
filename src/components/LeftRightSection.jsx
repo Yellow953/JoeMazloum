@@ -43,13 +43,15 @@ function LeftRightSection({ id, title, text, image, reverse = false }) {
 
         <p className="lr-p">
           I’m <strong>Joe Mazloum</strong>, a passionate software engineer
-          specializing in building scalable SaaS platforms, CRMs, ERPs and
-          mobile apps. My expertise spans <strong>Laravel</strong>,{" "}
-          <strong>Flutter</strong>, and full-stack development, with a proven
-          track record in high-performance, user-friendly apps and systems.
+          specializing in building scalable SaaS platforms, CRMs, ERPs, mobile
+          apps, and AI-powered solutions. My expertise spans{" "}
+          <strong>Laravel</strong>, <strong>Flutter</strong>,{" "}
+          <strong>AI &amp; automation</strong>, and full-stack development, with
+          a proven track record in high-performance, user-friendly apps and
+          systems.
         </p>
         <p className="lr-p">
-          I’ve delivered solutions across Europe and the Middle East—modernizing
+          I’ve delivered solutions across Europe and the Middle East modernizing
           legacy systems, improving performance, and shipping polished products.
           Expect clean code, efficient systems, and a collaborative partner.
         </p>
