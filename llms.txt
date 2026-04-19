@@ -1,0 +1,54 @@
+# Joe Mazloum
+
+> Joe Mazloum is a software engineer and AI developer based in Lebanon, specializing in full-stack web development, mobile apps, and AI-powered automation. He builds scalable SaaS platforms, CRMs, ERPs, and intelligent systems for clients across Europe and the Middle East.
+
+## About
+
+Joe Mazloum is a passionate software engineer with 5+ years of professional experience building scalable, production-grade applications. His expertise spans Laravel (PHP), Flutter, React, Python, Ruby on Rails, and AI/automation tools including Claude (Anthropic) and n8n. He has delivered projects across Lebanon, Germany, and the broader Middle East and European markets.
+
+Joe is available for freelance projects, full-time roles, and consulting engagements.
+
+Contact: joemazloum953@gmail.com
+Portfolio: https://yellow953.github.io/JoeMazloum/
+GitHub: https://github.com/Yellow953
+LinkedIn: https://www.linkedin.com/in/joe-mazloum/
+
+## Skills
+
+- **PHP & Laravel** — Expert in building scalable SaaS platforms, backend APIs, CRMs, ERPs, POS systems, and full-stack web applications. Multi-currency, multi-language, high-traffic environments.
+- **JavaScript & React** — Single Page Applications, interactive UIs, state management, Framer Motion animations, responsive design.
+- **Flutter** — Cross-platform mobile apps with MVC architecture, GetX state management, Firebase integration, and AI chatbot integration.
+- **Python** — Automation bots (Selenium), Django backends, web scrapers, crypto trading bots with machine learning, Pygame.
+- **Ruby on Rails** — Robust backend APIs, optimized database queries, CI/CD workflows.
+- **Database** — MySQL, PostgreSQL, SQLite. Laravel migrations, seeders, performance optimization.
+- **Shopify** — Theme customization, upselling strategies, e-commerce optimization.
+- **Server Deployments** — AWS (EC2, S3, Route53, VPS, Load Balancers, Auto Scaling), Linux, Nginx, Apache, Cloudflare, CI/CD pipelines, shared hosting (InMotion, Bluehost, Hostinger, GoDaddy).
+- **AI & Automation** — Claude (Anthropic) API integration, n8n automation pipelines, prompt engineering, tool use, LLM-powered features, AI chatbots in mobile/web apps.
+- **Languages** — English (fluent), Arabic (native), German (professional), French (conversational).
+
+## Work Experience
+
+### Lead Software Engineer — DoorEast (Jan 2025 – Present)
+Led development of a large-scale real estate marketplace. Built an Angular web app, Flutter mobile app, and Laravel backend with advanced property search, listings, and transactions. Deployed on AWS with EC2, S3, Route53, load balancing, and auto-scaling. Supported thousands of active users with high availability infrastructure.
+
+### PHP Software Developer — Göckler GMBH (Nov 2023 – Oct 2024)
+Modernized legacy PHP websites and CMS, upgrading from Xtcommerce 5 to 6.5 and Shopware 6. Reduced load times and boosted sales by 25% through design enhancements, popups, and upsell strategies.
+
+### Quality Assurance Developer — INTALIO (May 2023 – Oct 2023)
+Built a Python Selenium automation bot reducing manual testing time by 70%. Created comprehensive user/admin documentation reducing support requests by 30%.
+
+### Ruby on Rails Developer — IStay (Oct 2022 – Apr 2023)
+Built responsive frontend websites and robust Rails backends. Increased user engagement by 15% through focused UX improvements.
+
+### Laravel Full Stack Developer — Eddy's Group (2020 – 2021)
+Architected and deployed CRM and ERP systems with Laravel and Bootstrap, improving operational efficiency by 20%. Managed Linux server deployments, reducing downtime by 15%.
+
+## Key Capabilities
+
+- Building AI-powered features into web and mobile applications
+- Architecting multi-tenant SaaS systems from scratch
+- Automating business workflows with n8n and Python
+- Migrating and modernizing legacy systems (PHP, CMS, e-commerce)
+- Deploying and scaling cloud infrastructure on AWS
+- Cross-platform mobile development with Flutter
+- Full-stack development: backend APIs, frontend SPAs, mobile apps
