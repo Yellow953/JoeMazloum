@@ -29,30 +29,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Hero */
-.hero-section {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 2rem;
-}
-.hero-title {
-  font-weight: 900;
-  font-size: 4rem;
-  letter-spacing: 0.05em;
-}
-.typewriter {
-  font-weight: 700;
-  font-size: 3rem;
-  letter-spacing: 0.12em;
-  white-space: nowrap;
-  overflow: hidden;
-  margin: 1rem auto 0;
-}
+/* Hero — layout handled entirely in Hero.jsx */
 
 /* About */
 .left-right-section {
