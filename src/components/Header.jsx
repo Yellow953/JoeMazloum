@@ -27,16 +27,25 @@ function Header() {
 
   useEffect(() => {
     const ids = ["about", "skills", "experience", "projects", "contact"];
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => { if (e.isIntersecting) setActive(e.target.id); });
-      },
-      { threshold: 0.4 }
-    );
+
+    const updateActive = () => {
+      const mid = window.innerHeight * 0.5;
+      let current = null;
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= mid) current = id;
+      }
+      setActive(current);
+    };
+
+    // IntersectionObserver fires reliably on this site (confirmed by hero show/hide).
+    // Use it as the scroll trigger, then read exact positions via getBoundingClientRect.
+    const obs = new IntersectionObserver(updateActive, { threshold: [0, 0.1, 0.5, 1] });
     ids.forEach((id) => {
       const el = document.getElementById(id);
       if (el) obs.observe(el);
     });
+
     return () => obs.disconnect();
   }, []);
 
