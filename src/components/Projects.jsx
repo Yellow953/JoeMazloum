@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const ACCENT = "#111";
@@ -62,16 +62,16 @@ function Tag({ label }) {
   );
 }
 
-function ProjectRow({ project, index }) {
+function ProjectRow({ project, index, isMobile }) {
   const isEven = index % 2 === 0;
 
   const imgVariant = {
-    hidden: { opacity: 0, x: isEven ? -60 : 60 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut" } },
+    hidden: { opacity: 0, x: isMobile ? 0 : (isEven ? -60 : 60), y: isMobile ? 30 : 0 },
+    visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
   };
   const textVariant = {
-    hidden: { opacity: 0, x: isEven ? 60 : -60 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: "easeOut", delay: 0.12 } },
+    hidden: { opacity: 0, x: isMobile ? 0 : (isEven ? 60 : -60), y: isMobile ? 20 : 0 },
+    visible: { opacity: 1, x: 0, y: 0, transition: { duration: 0.7, ease: "easeOut", delay: 0.12 } },
   };
 
   const ImagePane = (
@@ -79,16 +79,22 @@ function ProjectRow({ project, index }) {
       variants={imgVariant}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.25 }}
-      style={{ flex: "0 0 75%", position: "relative", overflow: "hidden", borderRadius: "12px" }}>
+      viewport={{ once: false, amount: 0.2 }}
+      style={{
+        flex: isMobile ? "none" : "0 0 75%",
+        width: isMobile ? "100%" : undefined,
+        position: "relative",
+        overflow: "hidden",
+        borderRadius: "12px",
+      }}>
       <motion.img
         src={project.image}
         alt={project.title}
-        whileHover={{ scale: 1.03 }}
+        whileHover={isMobile ? {} : { scale: 1.03 }}
         transition={{ duration: 0.4 }}
         style={{
           width: "100%",
-          height: "420px",
+          height: isMobile ? "220px" : "420px",
           objectFit: "cover",
           display: "block",
           borderRadius: "12px",
@@ -98,27 +104,24 @@ function ProjectRow({ project, index }) {
           e.target.nextSibling.style.display = "flex";
         }}
       />
-      {/* Fallback placeholder shown if image missing */}
       <div
         style={{
           display: "none",
           width: "100%",
-          height: "420px",
+          height: isMobile ? "220px" : "420px",
           borderRadius: "12px",
-          background: `linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)`,
+          background: "linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%)",
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
           gap: "0.5rem",
-          color: "#444",
-          fontSize: "0.9rem",
-          border: "1px dashed #333",
+          color: "#666",
+          fontSize: "0.85rem",
+          border: "1px dashed #444",
         }}>
-        <span style={{ fontSize: "2rem" }}>🖼️</span>
+        <span style={{ fontSize: "1.8rem" }}>🖼️</span>
         <span>Screenshot coming soon</span>
-        <span style={{ fontSize: "0.75rem" }}>{project.image}</span>
       </div>
-      {/* Yellow overlay shine on hover */}
       <motion.div
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 1 }}
@@ -139,25 +142,39 @@ function ProjectRow({ project, index }) {
       variants={textVariant}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.25 }}
+      viewport={{ once: false, amount: 0.2 }}
       style={{
-        flex: "0 0 25%",
+        flex: isMobile ? "none" : "0 0 25%",
+        width: isMobile ? "100%" : undefined,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        padding: isEven ? "0 0 0 2.5rem" : "0 2.5rem 0 0",
-        gap: "1rem",
+        padding: isMobile ? "1.2rem 0 0 0" : (isEven ? "0 0 0 2.5rem" : "0 2.5rem 0 0"),
+        gap: "0.8rem",
       }}>
       <div>
-        <p style={{ fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: ACCENT, marginBottom: "0.35rem" }}>
+        <p style={{
+          fontSize: "0.7rem",
+          fontWeight: 700,
+          letterSpacing: "0.16em",
+          textTransform: "uppercase",
+          color: "#888",
+          marginBottom: "0.3rem",
+        }}>
           {project.subtitle}
         </p>
-        <h3 style={{ fontSize: "1.9rem", fontWeight: 900, lineHeight: 1.1, color: "#111", margin: 0 }}>
+        <h3 style={{
+          fontSize: isMobile ? "1.5rem" : "1.9rem",
+          fontWeight: 900,
+          lineHeight: 1.1,
+          color: "#111",
+          margin: 0,
+        }}>
           {project.title}
         </h3>
       </div>
 
-      <p style={{ fontSize: "0.92rem", lineHeight: 1.7, color: "#555", margin: 0 }}>
+      <p style={{ fontSize: "0.9rem", lineHeight: 1.7, color: "#555", margin: 0 }}>
         {project.description}
       </p>
 
@@ -191,9 +208,9 @@ function ProjectRow({ project, index }) {
     <div
       style={{
         display: "flex",
-        flexDirection: isEven ? "row" : "row-reverse",
-        alignItems: "center",
-        marginBottom: "6rem",
+        flexDirection: isMobile ? "column" : (isEven ? "row" : "row-reverse"),
+        alignItems: isMobile ? "stretch" : "center",
+        marginBottom: isMobile ? "3.5rem" : "6rem",
       }}>
       {ImagePane}
       {TextPane}
@@ -202,31 +219,62 @@ function ProjectRow({ project, index }) {
 }
 
 function Projects() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
   return (
-    <section id="projects" style={{ background: "#fff", padding: "5rem 3rem" }}>
+    <section
+      id="projects"
+      style={{
+        background: "#fff",
+        padding: isMobile ? "3rem 1.25rem" : "5rem 3rem",
+      }}>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.5 }}
         transition={{ duration: 0.6 }}
-        style={{ textAlign: "center", marginBottom: "4rem" }}>
-        <p style={{ fontSize: "0.78rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: ACCENT, marginBottom: "0.5rem" }}>
+        style={{ textAlign: "center", marginBottom: isMobile ? "2.5rem" : "4rem" }}>
+        <p style={{
+          fontSize: "0.75rem",
+          fontWeight: 700,
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          color: "#888",
+          marginBottom: "0.5rem",
+        }}>
           Selected Work
         </p>
-        <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, color: "#111", margin: 0 }}>
+        <h2 style={{
+          fontSize: isMobile ? "2rem" : "clamp(2rem, 4vw, 3rem)",
+          fontWeight: 900,
+          color: "#111",
+          margin: 0,
+        }}>
           Projects
         </h2>
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: "60px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          style={{ height: "4px", background: ACCENT, borderRadius: "2px", margin: "1rem auto 0" }}
+          style={{
+            height: "4px",
+            background: ACCENT,
+            borderRadius: "2px",
+            margin: "1rem auto 0",
+          }}
         />
       </motion.div>
 
       <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
         {projects.map((project, index) => (
-          <ProjectRow key={project.title} project={project} index={index} />
+          <ProjectRow key={project.title} project={project} index={index} isMobile={isMobile} />
         ))}
       </div>
     </section>
