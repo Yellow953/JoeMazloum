@@ -108,7 +108,7 @@ function SkillsSticky() {
   }, [activeIndex]);
 
   return (
-    <div>
+    <div id="skills">
       <div className="d-flex justify-content-center">
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
@@ -133,7 +133,7 @@ function SkillsSticky() {
               bottom: -8,
               left: 0,
               height: "4px",
-              backgroundColor: "#ffffff",
+              backgroundColor: "#111",
               borderRadius: "2px",
             }}
           />
@@ -171,7 +171,7 @@ function SkillsSticky() {
                     style={{
                       fontSize: "1.1rem",
                       lineHeight: "1.6",
-                      color: "#ccc",
+                      color: "#555",
                     }}>
                     {skill.description}
                   </motion.p>
@@ -188,8 +188,8 @@ function SkillsSticky() {
                     margin: "1.5rem auto",
                     padding: "1.5rem",
                     borderRadius: "12px",
-                    background: "linear-gradient(145deg, #111, #1a1a1a)",
-                    boxShadow: "0 6px 20px rgba(0,0,0,0.4)",
+                    background: "linear-gradient(145deg, #ffffff, #f5f5f5)",
+                    boxShadow: "0 6px 20px rgba(0,0,0,0.1)",
                     maxWidth: "90%",
                     textAlign: "center",
                   }}>
@@ -202,7 +202,7 @@ function SkillsSticky() {
                       width: "80px",
                       height: "80px",
                       objectFit: "contain",
-                      filter: skill.image.endsWith(".svg") ? "invert(1)" : "none",
+                      filter: "none",
                     }}
                   />
                   <h3 style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>
@@ -212,7 +212,7 @@ function SkillsSticky() {
                     style={{
                       fontSize: "1rem",
                       lineHeight: "1.5",
-                      color: "#ccc",
+                      color: "#555",
                     }}>
                     {skill.description}
                   </p>

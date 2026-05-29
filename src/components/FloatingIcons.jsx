@@ -1,15 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
+import {
+  SiJavascript,
+  SiReact,
+  SiLaravel,
+  SiPython,
+  SiFlutter,
+  SiGit,
+  SiShopify,
+} from "react-icons/si";
 
 function FloatingIcons({ mouseX, mouseY }) {
   const icons = [
-    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg",
-    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg",
-    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/laravel.svg",
-    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/python.svg",
-    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/flutter.svg",
-    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg",
-    "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/shopify.svg",
+    { Icon: SiJavascript, color: "#F7DF1E" },
+    { Icon: SiReact,      color: "#61DAFB" },
+    { Icon: SiLaravel,    color: "#FF2D20" },
+    { Icon: SiPython,     color: "#3776AB" },
+    { Icon: SiFlutter,    color: "#54C5F8" },
+    { Icon: SiGit,        color: "#F05032" },
+    { Icon: SiShopify,    color: "#96BF48" },
   ];
 
   const positions = [
@@ -24,25 +33,28 @@ function FloatingIcons({ mouseX, mouseY }) {
 
   return (
     <>
-      {icons.map((src, index) => {
+      {icons.map(({ Icon, color }, index) => {
         const pos = positions[index % positions.length];
         const depth = (index % 3) + 1;
         const size = 50 + depth * 10;
 
         return (
-          <motion.img
+          <motion.div
             key={index}
-            src={src}
-            alt=""
             style={{
               position: "absolute",
               top: pos.top,
               left: pos.left,
               width: `${size}px`,
-              opacity: 0.25,
-              filter: "invert(1) drop-shadow(0 0 6px rgba(255,255,255,0.15))",
+              height: `${size}px`,
+              opacity: 0.55,
               pointerEvents: "none",
               zIndex: 0,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color,
+              filter: `drop-shadow(0 0 8px ${color}55)`,
             }}
             animate={{
               x: mouseX / (20 * depth),
@@ -53,8 +65,9 @@ function FloatingIcons({ mouseX, mouseY }) {
               duration: 20 + depth * 5,
               repeat: Infinity,
               ease: "linear",
-            }}
-          />
+            }}>
+            <Icon size={size} />
+          </motion.div>
         );
       })}
     </>

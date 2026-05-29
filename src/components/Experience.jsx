@@ -1,7 +1,126 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+
+const cardVariants = {
+  hidden: (i) => ({ opacity: 0, x: i % 2 === 0 ? -60 : 60, y: 20 }),
+  visible: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const childVariants = {
+  hidden: { opacity: 0, y: 12 },
+  visible: (delay) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut", delay },
+  }),
+};
+
+function TimelineDot() {
+  return (
+    <div style={{ position: "absolute", left: "8px", top: "50px" }}>
+      <motion.div
+        animate={{ scale: [1, 1.9, 1], opacity: [0.4, 0, 0.4] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+        style={{
+          position: "absolute",
+          inset: 0,
+          borderRadius: "50%",
+          background: "#111",
+          width: "25px",
+          height: "25px",
+        }}
+      />
+      <div
+        style={{
+          position: "relative",
+          width: "25px",
+          height: "25px",
+          background: "#111",
+          borderRadius: "50%",
+          border: "3px solid #555",
+          zIndex: 1,
+        }}
+      />
+    </div>
+  );
+}
+
+function ExperienceCard({ exp, index }) {
+  return (
+    <motion.div
+      custom={index}
+      variants={cardVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.25 }}
+      whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.14)" }}
+      style={{
+        background: "#ffffff",
+        padding: "1.5rem 1.5rem 1.5rem 1.8rem",
+        borderRadius: "10px",
+        boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
+        marginLeft: "50px",
+        flex: 1,
+        borderLeft: "4px solid #111",
+        cursor: "default",
+        transition: "box-shadow 0.3s ease",
+      }}>
+      <motion.h3
+        custom={0.05}
+        variants={childVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.5 }}
+        style={{ margin: 0, fontSize: "1.5rem" }}>
+        {exp.role}{" "}
+        <span style={{ color: "#555" }}>@ {exp.company}</span>
+      </motion.h3>
+
+      <motion.span
+        custom={0.15}
+        variants={childVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.5 }}
+        style={{
+          fontSize: "0.85rem",
+          color: "#555",
+          display: "inline-block",
+          marginTop: "0.3rem",
+          background: "#f0f0f0",
+          padding: "2px 10px",
+          borderRadius: "20px",
+        }}>
+        {exp.date}
+      </motion.span>
+
+      <motion.p
+        custom={0.28}
+        variants={childVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.5 }}
+        style={{ marginTop: "0.8rem", lineHeight: 1.6, color: "#333" }}>
+        {exp.description}
+      </motion.p>
+    </motion.div>
+  );
+}
 
 function Experience() {
+  const sectionRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 0.9", "end 0.1"],
+  });
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
   const experiences = [
     {
       role: "Lead Software Engineer",
@@ -33,7 +152,7 @@ function Experience() {
     },
     {
       role: "Laravel Full Stack Developer",
-      company: "Eddy’s Group",
+      company: "Eddy's Group",
       date: "2020 – 2021",
       description:
         "Architected and deployed CRM and ERP web solutions with Laravel and Bootstrap, improving efficiency by 20%. Developed mobile apps integrated with backend systems, increasing client accessibility. Managed Linux server deployments, decreasing downtime by 15%.",
@@ -42,22 +161,23 @@ function Experience() {
 
   return (
     <section
+      id="experience"
+      ref={sectionRef}
       style={{
-        background: "linear-gradient(180deg, #000, #111)",
+        background: "linear-gradient(180deg, #f5f5f5, #eeeeee)",
         padding: "4rem 2rem",
-        color: "#fff",
+        color: "#111",
       }}>
-      <h2
-        style={{
-          textAlign: "center",
-          fontSize: "2.5rem",
-          marginBottom: "3rem",
-        }}>
+      <motion.h2
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.5 }}
+        transition={{ duration: 0.6 }}
+        style={{ textAlign: "center", fontSize: "2.5rem", marginBottom: "3rem" }}>
         Experience
-      </h2>
-      <div
-        style={{ position: "relative", maxWidth: "800px", margin: "0 auto" }}>
-        {/* Timeline line */}
+      </motion.h2>
+
+      <div style={{ position: "relative", maxWidth: "800px", margin: "0 auto" }}>
         <div
           style={{
             position: "absolute",
@@ -65,56 +185,25 @@ function Experience() {
             left: "20px",
             width: "2px",
             height: "100%",
-            background: "linear-gradient(to bottom, #888, transparent)",
-          }}></div>
+            background: "#e0e0e0",
+          }}>
+          <motion.div
+            style={{
+              height: lineHeight,
+              width: "100%",
+              background: "linear-gradient(to bottom, #111, #555)",
+              originY: 0,
+            }}
+          />
+        </div>
 
         {experiences.map((exp, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.6 }}
-            style={{
-              display: "flex",
-              marginBottom: "3rem",
-              position: "relative",
-            }}>
-            {/* Timeline dot */}
-            <div
-              style={{
-                position: "absolute",
-                left: "8px",
-                top: "50px",
-                width: "25px",
-                height: "25px",
-                background: "#fff",
-                borderRadius: "50%",
-                border: "3px solid #555",
-              }}></div>
-
-            {/* Card */}
-            <div
-              className="experience-card"
-              style={{
-                background: "#111",
-                padding: "1.5rem",
-                borderRadius: "10px",
-                boxShadow: "0 4px 20px rgba(255,255,255,0.05)",
-                marginLeft: "50px",
-                flex: 1,
-              }}>
-              <h3 style={{ margin: 0, fontSize: "1.5rem" }}>
-                {exp.role} @ {exp.company}
-              </h3>
-              <span style={{ fontSize: "0.9rem", color: "#aaa" }}>
-                {exp.date}
-              </span>
-              <p style={{ marginTop: "0.8rem", lineHeight: 1.6 }}>
-                {exp.description}
-              </p>
-            </div>
-          </motion.div>
+            style={{ display: "flex", marginBottom: "3rem", position: "relative" }}>
+            <TimelineDot />
+            <ExperienceCard exp={exp} index={index} />
+          </div>
         ))}
       </div>
     </section>
