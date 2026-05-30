@@ -43,7 +43,7 @@ const projects = [
       "A full SaaS POS + e-commerce platform. Merchants get a built-in POS terminal, a drag-and-drop website builder, real-time analytics dashboard, product & inventory management, discount engine, and multi-payment support — all under one login.",
     tags: ["Laravel", "PHP", "MySQL", "SaaS", "E-commerce"],
     images: [yellowPos1, yellowPos2, yellowPos3, yellowPosLogin, yellowPosDash, yellowPosPOS, yellowPosBuilder],
-    link: "#",
+    link: "https://yellow-pos.com",
   },
   {
     title: "Nehme Radiators",
@@ -52,7 +52,7 @@ const projects = [
       "A React-powered public storefront for a 55-year-old radiator manufacturer, paired with a Firebase-backed admin CRM. Staff manage the full product catalogue, track orders, control stock visibility, and handle inventory — all in real time.",
     tags: ["React", "Firebase", "Firestore", "CRM", "JavaScript"],
     images: [nehmeHome, nehmeShop, nehmeCRM],
-    link: "#",
+    link: "https://www.nehmeradiators.com/",
   },
   {
     title: "Watania Library",
@@ -61,7 +61,7 @@ const projects = [
       "A dual-purpose Laravel platform: a public-facing shop for books, stationery, and school supplies across Lebanon, paired with a dedicated POS backend for in-store staff to handle walk-in sales, receipts, and stock in one system.",
     tags: ["Laravel", "PHP", "MySQL", "POS", "E-commerce"],
     images: [wataniaHome, wataniaShop, wataniaLogin],
-    link: "#",
+    link: "https://watanialibrary.com/",
   },
   {
     title: "ESIB Social",
@@ -70,7 +70,7 @@ const projects = [
       "A comprehensive learning hub built for ESIB engineering students. Features course management, study materials, a built-in academic calculator, subscription tiers, and a full admin dashboard tracking 747 users, 354 courses, and 979 sessions.",
     tags: ["Laravel", "PHP", "MySQL", "E-learning", "SaaS"],
     images: [esibHome, esibLogin, esibDash, esibMgmt, esibCalc],
-    link: "#",
+    link: "https://esibsocial.com/",
   },
   {
     title: "Calories",
@@ -79,7 +79,7 @@ const projects = [
       "A clean calorie and nutrition tracking app. Users log daily meals, track macros, and monitor progress over time. Features a searchable food database, daily summaries, and goal-setting tools to support healthier eating habits.",
     tags: ["Laravel", "PHP", "MySQL", "Health", "Mobile-ready"],
     images: [cal1, cal2, cal3, calLogin],
-    link: "#",
+    link: "http://calories-shop.com/",
   },
 ];
 
@@ -99,7 +99,8 @@ function Tag({ label }) {
 }
 
 /* ── Browser frame ── */
-function BrowserFrame({ children }) {
+function BrowserFrame({ children, url }) {
+  const display = url ? url.replace(/^https?:\/\//, "").replace(/\/$/, "") : "";
   return (
     <div style={{
       borderRadius: "10px",
@@ -148,7 +149,7 @@ function BrowserFrame({ children }) {
             <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
           </svg>
           <span style={{ fontSize: "0.7rem", color: "#888", letterSpacing: "0.01em", overflow: "hidden", whiteSpace: "nowrap", textOverflow: "ellipsis" }}>
-            yellow953.github.io
+            {display}
           </span>
         </div>
       </div>
@@ -297,7 +298,7 @@ function ProjectRow({ project, index, isMobile }) {
       <motion.div
         variants={imgVariant}
         style={{ flex: isMobile ? "none" : "0 0 75%", width: "100%" }}>
-        <BrowserFrame>
+        <BrowserFrame url={project.link}>
           <ImageCarousel images={project.images} height={imgH} />
         </BrowserFrame>
       </motion.div>
