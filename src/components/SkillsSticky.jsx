@@ -1,6 +1,60 @@
 import React from "react";
 import { useEffect, useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+
+function DiamondCard({ skills, activeIndex }) {
+  const cardCtrl = useAnimation();
+  const imgCtrl  = useAnimation();
+  const [displayed, setDisplayed] = useState(activeIndex);
+  const restAngle = useRef(20);
+
+  useEffect(() => {
+    if (activeIndex === displayed) return;
+
+    const peak = restAngle.current + 28;
+    const to   = restAngle.current + 55;
+
+    // Spin card forward, counter-spin image — both in sync
+    cardCtrl.start({ rotate: peak, scale: 0.9, transition: { duration: 0.16, ease: "easeIn" } });
+    imgCtrl.start({  rotate: -peak,             transition: { duration: 0.16, ease: "easeIn" } });
+
+    setTimeout(() => {
+      restAngle.current = to;
+      setDisplayed(activeIndex);
+      cardCtrl.start({ rotate: to, scale: 1, transition: { duration: 0.2, ease: "easeOut" } });
+      imgCtrl.start({  rotate: -to,            transition: { duration: 0.2, ease: "easeOut" } });
+    }, 160);
+  }, [activeIndex]);
+
+  return (
+    <motion.div
+      animate={cardCtrl}
+      initial={{ rotate: 20, scale: 1 }}
+      style={{
+        width: 280,
+        height: 280,
+        background: "#ffffff",
+        borderRadius: "52px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexShrink: 0,
+        boxShadow: "0 20px 60px rgba(0,0,0,0.13), 0 4px 16px rgba(0,0,0,0.08)",
+      }}>
+      <motion.div
+        animate={imgCtrl}
+        initial={{ rotate: -20 }}
+        style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <img
+          src={skills[displayed].image}
+          alt={skills[displayed].name}
+          draggable={false}
+          style={{ width: 150, height: 150, objectFit: "contain" }}
+        />
+      </motion.div>
+    </motion.div>
+  );
+}
 
 function SkillsSticky() {
   const skills = [
@@ -224,16 +278,7 @@ function SkillsSticky() {
 
         {!isMobile && (
           <div className="skills-image">
-            <img
-              src={skills[activeIndex].image}
-              alt={skills[activeIndex].name}
-              draggable={false}
-              style={{
-                width: "300px",
-                height: "300px",
-                filter: skills[activeIndex].image.endsWith(".svg") ? "invert(1)" : "none",
-              }}
-            />
+            <DiamondCard skills={skills} activeIndex={activeIndex} />
           </div>
         )}
       </div>

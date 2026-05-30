@@ -88,9 +88,7 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #000;
-  border-radius: 15px;
-  padding: 1rem;
+  background: transparent;
 }
 
 /* Footer */
