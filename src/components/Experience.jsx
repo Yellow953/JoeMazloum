@@ -2,6 +2,11 @@ import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
+import dooreastLogo from "../assets/logos/dooreast.jpg";
+import gocklerLogo  from "../assets/logos/gockler.png";
+import intalioLogo  from "../assets/logos/intalio.jpeg";
+import istayLogo    from "../assets/logos/istay.png";
+
 const cardVariants = {
   hidden: (i) => ({ opacity: 0, x: i % 2 === 0 ? -60 : 60, y: 20 }),
   visible: {
@@ -51,6 +56,33 @@ function TimelineDot() {
   );
 }
 
+/* ── Company logo (omitted entirely for companies without one) ── */
+function CompanyLogo({ exp }) {
+  return (
+    <div style={{
+      width: 96,
+      height: 96,
+      flexShrink: 0,
+      borderRadius: "14px",
+      border: "1px solid #e6e6e6",
+      background: "#fff",
+      boxShadow: "0 2px 8px rgba(0,0,0,0.06)",
+      overflow: "hidden",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    }}>
+      <img
+        src={exp.logo}
+        alt={`${exp.company} logo`}
+        loading="lazy"
+        decoding="async"
+        style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
+      />
+    </div>
+  );
+}
+
 function ExperienceCard({ exp, index }) {
   return (
     <motion.div
@@ -71,34 +103,49 @@ function ExperienceCard({ exp, index }) {
         cursor: "default",
         transition: "box-shadow 0.3s ease",
       }}>
-      <motion.h3
-        custom={0.05}
-        variants={childVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.5 }}
-        style={{ margin: 0, fontSize: "1.5rem" }}>
-        {exp.role}{" "}
-        <span style={{ color: "#555" }}>@ {exp.company}</span>
-      </motion.h3>
+      <div style={{ display: "flex", alignItems: "center", gap: "1.25rem" }}>
+        {exp.logo && (
+          <motion.div
+            custom={0.05}
+            variants={childVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.5 }}>
+            <CompanyLogo exp={exp} />
+          </motion.div>
+        )}
 
-      <motion.span
-        custom={0.15}
-        variants={childVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.5 }}
-        style={{
-          fontSize: "0.85rem",
-          color: "#555",
-          display: "inline-block",
-          marginTop: "0.3rem",
-          background: "#f0f0f0",
-          padding: "2px 10px",
-          borderRadius: "20px",
-        }}>
-        {exp.date}
-      </motion.span>
+        <div style={{ minWidth: 0 }}>
+          <motion.h3
+            custom={0.05}
+            variants={childVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.5 }}
+            style={{ margin: 0, fontSize: "1.5rem" }}>
+            {exp.role}{" "}
+            <span style={{ color: "#555" }}>@ {exp.company}</span>
+          </motion.h3>
+
+          <motion.span
+            custom={0.15}
+            variants={childVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.5 }}
+            style={{
+              fontSize: "0.85rem",
+              color: "#555",
+              display: "inline-block",
+              marginTop: "0.3rem",
+              background: "#f0f0f0",
+              padding: "2px 10px",
+              borderRadius: "20px",
+            }}>
+            {exp.date}
+          </motion.span>
+        </div>
+      </div>
 
       <motion.p
         custom={0.28}
@@ -125,6 +172,7 @@ function Experience() {
     {
       role: "Lead Software Engineer",
       company: "DoorEast",
+      logo: dooreastLogo,
       date: "Jan 2025 – now",
       description:
         "Led development of a large-scale real estate marketplace, delivering a seamless user experience across Angular web and Flutter mobile applications. Built and maintained a Laravel backend powering advanced property search, listings, and transactions. Deployed and scaled infrastructure on AWS (Route53, S3, EC2, VPS) with load balancing and auto-scaling, ensuring high availability and performance. Improved deployment pipelines and system reliability, supporting thousands of active users.",
@@ -132,6 +180,7 @@ function Experience() {
     {
       role: "PHP Software Developer",
       company: "Göckler GMBH",
+      logo: gocklerLogo,
       date: "Nov 2023 – Oct 2024",
       description:
         "Modernized legacy PHP websites and CMS, upgrading from Xtcommerce 5 to 6.5 and Shopware 6, improving platform stability. Optimized performance, reducing load times and boosting sales by 25% through design enhancements, popups, and upsell strategies. Delivered backend and frontend features ahead of schedule, enhancing client satisfaction.",
@@ -139,6 +188,7 @@ function Experience() {
     {
       role: "Quality Assurance Developer",
       company: "INTALIO",
+      logo: intalioLogo,
       date: "May 2023 – Oct 2023",
       description:
         "Developed a Python Selenium automation bot, reducing manual testing time by 70% and improving bug detection accuracy. Created comprehensive User/Admin guides, reducing support requests by 30%. Enhanced software quality via rigorous testing and detailed test cases.",
@@ -146,6 +196,7 @@ function Experience() {
     {
       role: "Ruby on Rails Developer",
       company: "IStay",
+      logo: istayLogo,
       date: "Oct 2022 – Apr 2023",
       description:
         "Built responsive, user-focused front-end websites, increasing engagement by 15%. Designed and implemented robust backend functionalities with Ruby on Rails, ensuring smooth cross-team delivery. Improved workflow integration using Git/GitHub.",

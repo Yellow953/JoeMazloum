@@ -27,6 +27,11 @@ import esibDash   from "../assets/projects/esib/esib-dashboard.png";
 import esibCalc   from "../assets/projects/esib/esib-calculactor.png";
 import esibMgmt   from "../assets/projects/esib/esib-management.png";
 
+// Mecanix
+import mecanix1   from "../assets/projects/mecanix/mecanix1.png";
+import mecanix2   from "../assets/projects/mecanix/mecanix2.png";
+import mecanix3   from "../assets/projects/mecanix/mecanix3.png";
+
 // Calories
 import cal1       from "../assets/projects/calories/calories-1.png";
 import cal2       from "../assets/projects/calories/calories-2.png";
@@ -71,6 +76,15 @@ const projects = [
     tags: ["Laravel", "PHP", "MySQL", "E-learning", "SaaS"],
     images: [esibHome, esibLogin, esibDash, esibMgmt, esibCalc],
     link: "https://esibsocial.com/",
+  },
+  {
+    title: "Mecanix",
+    subtitle: "Stock Management, CRM & Accounting",
+    description:
+      "An all-in-one ERP for warehouse-driven businesses. Handles inventory (items, purchase orders, sales orders, transfers, stock checks), a CRM with a Kanban task board, and full accounting — invoices, cash receipts, credit and debit notes — across multiple warehouses, currencies, and tax rules with role-based access and audit logs.",
+    tags: ["Laravel", "PHP", "MySQL", "ERP", "Accounting"],
+    images: [mecanix1, mecanix2, mecanix3],
+    link: "https://mecanixstocksystem.com",
   },
   {
     title: "Calories",
