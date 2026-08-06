@@ -32,6 +32,16 @@ import mecanix1   from "../assets/projects/mecanix/mecanix1.png";
 import mecanix2   from "../assets/projects/mecanix/mecanix2.png";
 import mecanix3   from "../assets/projects/mecanix/mecanix3.png";
 
+// Elma
+import elma1      from "../assets/projects/elma/elma-1.png";
+import elma2      from "../assets/projects/elma/elma-2.png";
+import elma3      from "../assets/projects/elma/elma-3.png";
+import elma4      from "../assets/projects/elma/elma-4.png";
+
+// Sellier & Bellot
+import sellier1   from "../assets/projects/sellier-bellot/sellier-bellot-1.png";
+import sellier2   from "../assets/projects/sellier-bellot/sellier-bellot-2.png";
+
 // Calories
 import cal1       from "../assets/projects/calories/calories-1.png";
 import cal2       from "../assets/projects/calories/calories-2.png";
@@ -94,6 +104,22 @@ const projects = [
     tags: ["Laravel", "PHP", "MySQL", "Health", "Mobile-ready"],
     images: [cal1, cal2, cal3, calLogin],
     link: "http://calories-shop.com/",
+  },
+  {
+    title: "Elma",
+    subtitle: "Freight Forwarding & Accounting System",
+    description:
+      "An accounting and operations platform for a shipping company. Staff book air, sea, and land shipments with full carrier, vessel, container, and consignee detail, then flow them straight into a double-entry chart of accounts — sales orders, invoices, payments, and credit notes — with multi-currency clients and suppliers tracked end to end.",
+    tags: ["Laravel", "PHP", "MySQL", "Logistics", "Accounting"],
+    images: [elma1, elma2, elma3, elma4],
+  },
+  {
+    title: "Sellier & Bellot",
+    subtitle: "Shooting Range Management System",
+    description:
+      "A range management system handling the full front-desk workflow. Staff register customers, assign lanes, and build transactions that track whether each pistol and box of ammo came from the club or the customer — priced per item, closed out at the counter, and logged with a full audit trail and database backups.",
+    tags: ["Laravel", "PHP", "MySQL", "POS", "Management"],
+    images: [sellier1, sellier2],
   },
 ];
 
