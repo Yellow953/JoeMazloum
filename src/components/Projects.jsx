@@ -42,6 +42,12 @@ import elma4      from "../assets/projects/elma/elma-4.png";
 import sellier1   from "../assets/projects/sellier-bellot/sellier-bellot-1.png";
 import sellier2   from "../assets/projects/sellier-bellot/sellier-bellot-2.png";
 
+// Mira24K
+import mira1      from "../assets/projects/mira24k/mira-1.png";
+import mira2      from "../assets/projects/mira24k/mira-2.png";
+import mira3      from "../assets/projects/mira24k/mira-3.png";
+import mira4      from "../assets/projects/mira24k/mira-4.png";
+
 // Calories
 import cal1       from "../assets/projects/calories/calories-1.png";
 import cal2       from "../assets/projects/calories/calories-2.png";
@@ -97,13 +103,20 @@ const projects = [
     link: "https://mecanixstocksystem.com",
   },
   {
-    title: "Calories",
-    subtitle: "Nutrition & Calorie Tracker",
+    title: "Sellier & Bellot",
+    subtitle: "Shooting Range Management System",
     description:
-      "A clean calorie and nutrition tracking app. Users log daily meals, track macros, and monitor progress over time. Features a searchable food database, daily summaries, and goal-setting tools to support healthier eating habits.",
-    tags: ["Laravel", "PHP", "MySQL", "Health", "Mobile-ready"],
-    images: [cal1, cal2, cal3, calLogin],
-    link: "http://calories-shop.com/",
+      "A range management system handling the full front-desk workflow. Staff register customers, assign lanes, and build transactions that track whether each pistol and box of ammo came from the club or the customer — priced per item, closed out at the counter, and logged with a full audit trail and database backups.",
+    tags: ["Laravel", "PHP", "MySQL", "POS", "Management"],
+    images: [sellier1, sellier2],
+  },
+  {
+    title: "Mira24K",
+    subtitle: "Jewelry Storefront, POS & Manufacturing",
+    description:
+      "A complete platform for a gold jewelry business. A customer-facing storefront with category browsing and wishlists sits on top of a QR-scanning POS terminal and a manufacturing catalogue tracking chains by karat, thickness, grams per decimetre, and reseller. Live gold, silver, and exchange rates feed pricing across the whole system.",
+    tags: ["Laravel", "PHP", "MySQL", "POS", "E-commerce"],
+    images: [mira1, mira2, mira3, mira4],
   },
   {
     title: "Elma",
@@ -114,12 +127,13 @@ const projects = [
     images: [elma1, elma2, elma3, elma4],
   },
   {
-    title: "Sellier & Bellot",
-    subtitle: "Shooting Range Management System",
+    title: "Calories",
+    subtitle: "Nutrition & Calorie Tracker",
     description:
-      "A range management system handling the full front-desk workflow. Staff register customers, assign lanes, and build transactions that track whether each pistol and box of ammo came from the club or the customer — priced per item, closed out at the counter, and logged with a full audit trail and database backups.",
-    tags: ["Laravel", "PHP", "MySQL", "POS", "Management"],
-    images: [sellier1, sellier2],
+      "A clean calorie and nutrition tracking app. Users log daily meals, track macros, and monitor progress over time. Features a searchable food database, daily summaries, and goal-setting tools to support healthier eating habits.",
+    tags: ["Laravel", "PHP", "MySQL", "Health", "Mobile-ready"],
+    images: [cal1, cal2, cal3, calLogin],
+    link: "http://calories-shop.com/",
   },
 ];
 
