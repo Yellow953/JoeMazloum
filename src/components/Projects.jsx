@@ -48,6 +48,18 @@ import mira2      from "../assets/projects/mira24k/mira-2.png";
 import mira3      from "../assets/projects/mira24k/mira-3.png";
 import mira4      from "../assets/projects/mira24k/mira-4.png";
 
+// Yellow Finance (mobile)
+import yf1        from "../assets/projects/yellow-finance/home.png";
+import yf2        from "../assets/projects/yellow-finance/txn.png";
+import yf3        from "../assets/projects/yellow-finance/budgets.png";
+import yf4        from "../assets/projects/yellow-finance/reports.png";
+import yf5        from "../assets/projects/yellow-finance/portfolio.png";
+import yf6        from "../assets/projects/yellow-finance/ai-chat.png";
+import yf7        from "../assets/projects/yellow-finance/todos.png";
+import yf8        from "../assets/projects/yellow-finance/sports.png";
+import yf9        from "../assets/projects/yellow-finance/diary.png";
+import yf10       from "../assets/projects/yellow-finance/profile.png";
+
 // Calories
 import cal1       from "../assets/projects/calories/calories-1.png";
 import cal2       from "../assets/projects/calories/calories-2.png";
@@ -65,6 +77,15 @@ const projects = [
     tags: ["Laravel", "PHP", "MySQL", "SaaS", "E-commerce"],
     images: [yellowPos1, yellowPos2, yellowPos3, yellowPosLogin, yellowPosDash, yellowPosPOS, yellowPosBuilder],
     link: "https://yellow-pos.com",
+  },
+  {
+    title: "Yellow Finance",
+    subtitle: "Personal Finance & Life Tracker",
+    description:
+      "A Flutter app for money and habits in one place. Expense tracking, budgets, and monthly reports sit alongside a stocks, crypto, and gold watchlist, a Gemini-powered assistant that reads your own data, plus tasks, workouts, and a diary.",
+    tags: ["Flutter", "Dart", "Firebase", "Gemini AI", "Mobile"],
+    images: [yf1, yf2, yf3, yf4, yf5, yf6, yf7, yf8, yf9, yf10],
+    type: "mobile",
   },
   {
     title: "Nehme Radiators",
@@ -214,8 +235,48 @@ function BrowserFrame({ children, url }) {
   );
 }
 
+/* ── Phone frame (device shell for mobile app projects) ── */
+function PhoneFrame({ height, children }) {
+  const button = {
+    position: "absolute",
+    width: 3,
+    borderRadius: 2,
+    background: "linear-gradient(90deg, #2c2c2c, #4a4a4a)",
+  };
+
+  return (
+    <div style={{
+      position: "relative",
+      display: "inline-flex",
+      flexShrink: 0,
+      padding: "9px",
+      borderRadius: "46px",
+      background: "linear-gradient(150deg, #4a4a4a, #141414 38%, #0a0a0a)",
+      boxShadow: "0 26px 60px rgba(0,0,0,0.42), 0 6px 16px rgba(0,0,0,0.22)",
+    }}>
+      {/* Side buttons */}
+      <div style={{ ...button, left: -2, top: "17%", height: 26 }} />
+      <div style={{ ...button, left: -2, top: "25%", height: 46 }} />
+      <div style={{ ...button, left: -2, top: "35%", height: 46 }} />
+      <div style={{ ...button, right: -2, top: "27%", height: 68 }} />
+
+      {/* Screen (screenshots already include the status bar + island) */}
+      <div style={{
+        position: "relative",
+        height,
+        aspectRatio: "1260 / 2736",
+        borderRadius: "37px",
+        overflow: "hidden",
+        background: "#000",
+      }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
 /* ── Image carousel ── */
-function ImageCarousel({ images, height }) {
+function ImageCarousel({ images, height, phone, phoneHeight }) {
   const [index, setIndex]    = useState(0);
   const [direction, setDir]  = useState(1);
   const [hovering, setHover] = useState(false);
@@ -233,33 +294,41 @@ function ImageCarousel({ images, height }) {
     exit:   (d) => ({ x: d > 0 ? "-100%" : "100%", opacity: 0, transition: { duration: 0.3, ease: [0.32, 0.72, 0, 1] } }),
   };
 
+  /* The sliding screen — sits inside the phone screen, or fills the frame directly */
+  const screen = (
+    <AnimatePresence initial={false} custom={direction}>
+      <motion.div
+        key={index}
+        custom={direction}
+        variants={variants}
+        initial="enter"
+        animate="center"
+        exit="exit"
+        style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <img
+          src={images[index]}
+          alt={`screenshot ${index + 1}`}
+          loading="lazy"
+          decoding="async"
+          style={{ width: "100%", height: "100%", objectFit: phone ? "cover" : "contain", display: "block" }}
+        />
+      </motion.div>
+    </AnimatePresence>
+  );
+
   return (
     <div
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       style={{
         position: "relative", overflow: "hidden", height,
-        background: "#f0f0f0",
+        background: phone
+          ? "radial-gradient(ellipse 42% 52% at 50% 50%, rgba(250,204,21,0.22), rgba(250,204,21,0) 72%)"
+          : "#f0f0f0",
+        ...(phone && { display: "flex", alignItems: "center", justifyContent: "center" }),
       }}>
 
-      <AnimatePresence initial={false} custom={direction}>
-        <motion.div
-          key={index}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <img
-            src={images[index]}
-            alt={`screenshot ${index + 1}`}
-            loading="lazy"
-            decoding="async"
-            style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
-          />
-        </motion.div>
-      </AnimatePresence>
+      {phone ? <PhoneFrame height={phoneHeight}>{screen}</PhoneFrame> : screen}
 
       {images.length > 1 && (
         <>
@@ -268,7 +337,9 @@ function ImageCarousel({ images, height }) {
             animate={{ opacity: hovering ? 1 : 0 }}
             transition={{ duration: 0.2 }}
             style={{
-              position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)",
+              position: "absolute",
+              left: phone ? `calc(50% - ${phoneHeight * 0.46 / 2 + 62}px)` : 12,
+              top: "50%", transform: "translateY(-50%)",
               zIndex: 2, background: "rgba(255,255,255,0.92)", border: "none",
               borderRadius: "50%", width: 36, height: 36, cursor: "pointer",
               display: "flex", alignItems: "center", justifyContent: "center",
@@ -280,22 +351,26 @@ function ImageCarousel({ images, height }) {
             animate={{ opacity: hovering ? 1 : 0 }}
             transition={{ duration: 0.2 }}
             style={{
-              position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)",
+              position: "absolute",
+              right: phone ? `calc(50% - ${phoneHeight * 0.46 / 2 + 62}px)` : 12,
+              top: "50%", transform: "translateY(-50%)",
               zIndex: 2, background: "rgba(255,255,255,0.92)", border: "none",
               borderRadius: "50%", width: 36, height: 36, cursor: "pointer",
               display: "flex", alignItems: "center", justifyContent: "center",
               fontSize: "1.1rem", boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
             }}>›</motion.button>
 
-          <div style={{
-            position: "absolute", top: 12, right: 12, zIndex: 2,
-            background: "rgba(0,0,0,0.45)", color: "#fff",
-            fontSize: "0.72rem", fontWeight: 700,
-            padding: "3px 10px", borderRadius: "20px",
-            backdropFilter: "blur(6px)",
-          }}>
-            {index + 1} / {images.length}
-          </div>
+          {!phone && (
+            <div style={{
+              position: "absolute", top: 12, right: 12, zIndex: 2,
+              background: "rgba(0,0,0,0.45)", color: "#fff",
+              fontSize: "0.72rem", fontWeight: 700,
+              padding: "3px 10px", borderRadius: "20px",
+              backdropFilter: "blur(6px)",
+            }}>
+              {index + 1} / {images.length}
+            </div>
+          )}
 
           <div style={{
             position: "absolute", bottom: 12, left: "50%", transform: "translateX(-50%)",
@@ -305,7 +380,9 @@ function ImageCarousel({ images, height }) {
               <button key={i} onClick={() => go(i)} style={{
                 width: i === index ? 20 : 6, height: 6,
                 borderRadius: 3,
-                background: i === index ? "#fff" : "rgba(255,255,255,0.5)",
+                background: phone
+                  ? (i === index ? "#111" : "rgba(17,17,17,0.25)")
+                  : (i === index ? "#fff" : "rgba(255,255,255,0.5)"),
                 border: "none", cursor: "pointer", padding: 0,
                 transition: "width 0.25s ease, background 0.25s ease",
               }} />
@@ -319,8 +396,10 @@ function ImageCarousel({ images, height }) {
 
 /* ── Project row ── */
 function ProjectRow({ project, index, isMobile }) {
-  const isEven = index % 2 === 0;
-  const imgH   = isMobile ? 260 : 420;
+  const isEven  = index % 2 === 0;
+  const isPhone = project.type === "mobile";
+  const imgH    = isPhone ? (isMobile ? 430 : 620) : (isMobile ? 260 : 420);
+  const phoneH  = isMobile ? 350 : 520;
 
   const imgVariant = {
     hidden:  { opacity: 0, x: isMobile ? 0 : (isEven ? -60 : 60), y: isMobile ? 30 : 0 },
@@ -352,9 +431,13 @@ function ProjectRow({ project, index, isMobile }) {
       <motion.div
         variants={imgVariant}
         style={{ flex: isMobile ? "none" : "0 0 75%", width: "100%" }}>
-        <BrowserFrame url={project.link}>
-          <ImageCarousel images={project.images} height={imgH} />
-        </BrowserFrame>
+        {isPhone ? (
+          <ImageCarousel images={project.images} height={imgH} phone phoneHeight={phoneH} />
+        ) : (
+          <BrowserFrame url={project.link}>
+            <ImageCarousel images={project.images} height={imgH} />
+          </BrowserFrame>
+        )}
       </motion.div>
 
       {/* Text */}
