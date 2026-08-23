@@ -227,7 +227,9 @@ function Hero() {
           letterSpacing: "-0.03em", color: "#111",
           margin: "0 0 1.4rem",
         }}>
-          Joe<br />Mazloum.
+          {"Joe "}
+          <br />
+          {"Mazloum."}
         </motion.h1>
 
         {/* Description */}

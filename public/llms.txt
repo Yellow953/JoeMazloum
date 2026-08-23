@@ -26,6 +26,48 @@ LinkedIn: https://www.linkedin.com/in/joe-mazloum/
 - **AI & Automation** — Claude (Anthropic) API integration, n8n automation pipelines, prompt engineering, tool use, LLM-powered features, AI chatbots in mobile/web apps.
 - **Languages** — English (fluent), Arabic (native), German (professional), French (conversational).
 
+## Projects
+
+### YellowPOS — SaaS Point of Sale Platform (https://yellow-pos.com)
+A full SaaS POS and e-commerce platform. Merchants get a built-in POS terminal, a drag-and-drop website builder, real-time analytics dashboard, product and inventory management, a discount engine, and multi-payment support — all under one login.
+Stack: Laravel, PHP, MySQL, SaaS, E-commerce
+
+### Yellow Finance — Personal Finance & Life Tracker (mobile)
+A Flutter app for money and habits in one place. Expense tracking, budgets, and monthly reports sit alongside a stocks, crypto, and gold watchlist, a Gemini-powered assistant that reads your own data, plus tasks, workouts, and a diary.
+Stack: Flutter, Dart, Firebase, Gemini AI, Mobile
+
+### Nehme Radiators — Corporate Site & Admin CRM (https://www.nehmeradiators.com/)
+A React-powered public storefront for a 55-year-old radiator manufacturer, paired with a Firebase-backed admin CRM. Staff manage the full product catalogue, track orders, control stock visibility, and handle inventory in real time.
+Stack: React, Firebase, Firestore, CRM, JavaScript
+
+### Watania Library — Book Shop & POS Backend (https://watanialibrary.com/)
+A dual-purpose Laravel platform: a public-facing shop for books, stationery, and school supplies across Lebanon, paired with a dedicated POS backend for in-store staff to handle walk-in sales, receipts, and stock in one system.
+Stack: Laravel, PHP, MySQL, POS, E-commerce
+
+### ESIB Social — Engineering Student Learning Platform (https://esibsocial.com/)
+A comprehensive learning hub for ESIB engineering students. Features course management, study materials, a built-in academic calculator, subscription tiers, and a full admin dashboard tracking 747 users, 354 courses, and 979 sessions.
+Stack: Laravel, PHP, MySQL, E-learning, SaaS
+
+### Mecanix — Stock Management, CRM & Accounting (https://mecanixstocksystem.com)
+An all-in-one ERP for warehouse-driven businesses. Handles inventory (items, purchase orders, sales orders, transfers, stock checks), a CRM with a Kanban task board, and full accounting — invoices, cash receipts, credit and debit notes — across multiple warehouses, currencies, and tax rules with role-based access and audit logs.
+Stack: Laravel, PHP, MySQL, ERP, Accounting
+
+### Sellier & Bellot — Shooting Range Management System
+A range management system handling the full front-desk workflow. Staff register customers, assign lanes, and build transactions that track whether each pistol and box of ammo came from the club or the customer — priced per item, closed out at the counter, and logged with a full audit trail and database backups.
+Stack: Laravel, PHP, MySQL, POS, Management
+
+### Mira24K — Jewelry Storefront, POS & Manufacturing
+A complete platform for a gold jewelry business. A customer-facing storefront with category browsing and wishlists sits on top of a QR-scanning POS terminal and a manufacturing catalogue tracking chains by karat, thickness, grams per decimetre, and reseller. Live gold, silver, and exchange rates feed pricing across the whole system.
+Stack: Laravel, PHP, MySQL, POS, E-commerce
+
+### Elma — Freight Forwarding & Accounting System
+An accounting and operations platform for a shipping company. Staff book air, sea, and land shipments with full carrier, vessel, container, and consignee detail, then flow them straight into a double-entry chart of accounts — sales orders, invoices, payments, and credit notes — with multi-currency clients and suppliers tracked end to end.
+Stack: Laravel, PHP, MySQL, Logistics, Accounting
+
+### Calories — Nutrition & Calorie Tracker (http://calories-shop.com/)
+A clean calorie and nutrition tracking app. Users log daily meals, track macros, and monitor progress over time. Features a searchable food database, daily summaries, and goal-setting tools to support healthier eating habits.
+Stack: Laravel, PHP, MySQL, Health, Mobile-ready
+
 ## Work Experience
 
 ### Lead Software Engineer — DoorEast (Jan 2025 – Present)

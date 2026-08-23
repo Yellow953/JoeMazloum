@@ -14,6 +14,14 @@ npm run deploy     # Build + deploy to GitHub Pages (gh-pages -d dist)
 
 There are no tests in this project.
 
+`npm run build` runs three steps: the normal client build, an SSR build of
+`src/entry-server.jsx` into `dist-ssr/`, and `scripts/prerender.js`, which renders
+`<App />` to static HTML and injects it into `dist/index.html`. This exists for SEO/GEO:
+AI crawlers (GPTBot, ClaudeBot, PerplexityBot) do not execute JavaScript, so without it
+they would only see an empty `<div id="root">`. Keep components SSR-safe — every
+`window`/`document`/`IntersectionObserver` access must stay inside `useEffect` or an
+event handler, never in a component body or at module scope.
+
 ## Architecture
 
 This is a single-page personal portfolio site for Joe Mazloum, built with React + Vite, deployed to GitHub Pages at `https://Yellow953.github.io/JoeMazloum/`. The Vite base is set to `/JoeMazloum/` to match the GitHub Pages path.
@@ -34,5 +42,10 @@ This is a single-page personal portfolio site for Joe Mazloum, built with React 
 - `react-bootstrap` — Available but minimally used
 
 **Styling:** Global styles in `src/index.css`. Component-specific styles are mostly inline (JSX style props). No CSS modules or Sass.
+
+**SEO / GEO surfaces** — when project or experience content changes, update these in step, since
+they are hand-maintained copies of what's in the components: the JSON-LD `@graph` in `index.html`
+(the `Person.hasCreativeWork` list mirrors `projects` in `Projects.jsx`), `public/llms.txt`, and
+`public/sitemap.xml` (`lastmod`).
 
 **Static assets** (profile image, etc.) live in `public/` and are referenced without a path prefix (e.g., `"profile.jpeg"`).

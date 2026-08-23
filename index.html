@@ -11,45 +11,67 @@
       content="width=device-width, initial-scale=1.0" />
 
     <!-- Title: Make sure it contains your full name first -->
-    <title>Joe Mazloum | Software Engineer, AI Developer & Full-Stack Developer</title>
+    <title>Joe Mazloum | Software Engineer, AI Developer &amp; Full-Stack Developer</title>
 
     <!-- Primary description -->
     <meta
       name="description"
-      content="Official portfolio of Joe Mazloum, Software Engineer specializing in Laravel, React, Flutter, AI integration, and full-stack SaaS development. Expert in building AI-powered applications, automation pipelines with n8n, and scalable web and mobile solutions." />
-
-    <!-- Keywords -->
-    <meta
-      name="keywords"
-      content="Joe Mazloum, Joe Mazloum portfolio, software engineer, Laravel developer, React developer, Flutter developer, AI developer, AI integration, n8n automation, Claude AI, full stack developer, SaaS developer, Lebanon developer, web developer, mobile developer" />
+      content="Joe Mazloum is a software engineer in Lebanon building SaaS platforms, ERPs, POS systems, and AI-powered apps with Laravel, React, and Flutter. See 10 shipped projects, work history, and contact details." />
 
     <!-- Author -->
     <meta
       name="author"
       content="Joe Mazloum" />
 
+    <!-- Let Google use full-size images and untruncated snippets in results -->
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
     <!-- Open Graph (Social Sharing) -->
     <meta
+      property="og:site_name"
+      content="Joe Mazloum" />
+    <meta
+      property="og:locale"
+      content="en_US" />
+    <meta
       property="og:title"
-      content="Joe Mazloum | Software Engineer, AI Developer & Full-Stack Developer" />
+      content="Joe Mazloum | Software Engineer, AI Developer &amp; Full-Stack Developer" />
     <meta
       property="og:description"
-      content="Official portfolio of Joe Mazloum. Full-stack engineer specializing in Laravel, Flutter, AI integration, and automation. Discover experience, skills, and professional projects." />
+      content="Software engineer in Lebanon building SaaS platforms, ERPs, POS systems, and AI-powered apps with Laravel, React, and Flutter." />
     <meta
       property="og:image"
-      content="https://yellow953.github.io/JoeMazloum/favicon.png" />
+      content="https://yellow953.github.io/JoeMazloum/profile.jpeg" />
+    <meta
+      property="og:image:width"
+      content="2048" />
+    <meta
+      property="og:image:height"
+      content="1536" />
+    <meta
+      property="og:image:alt"
+      content="Joe Mazloum, software engineer" />
     <meta
       property="og:url"
       content="https://yellow953.github.io/JoeMazloum/" />
     <meta
       property="og:type"
-      content="website" />
+      content="profile" />
+    <meta
+      property="profile:first_name"
+      content="Joe" />
+    <meta
+      property="profile:last_name"
+      content="Mazloum" />
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Joe Mazloum | Software Engineer, AI Developer & Full-Stack Developer" />
-    <meta name="twitter:description" content="Official portfolio of Joe Mazloum. Full-stack engineer specializing in Laravel, Flutter, AI integration, and automation." />
-    <meta name="twitter:image" content="https://yellow953.github.io/JoeMazloum/favicon.png" />
+    <meta name="twitter:description" content="Software engineer in Lebanon building SaaS platforms, ERPs, POS systems, and AI-powered apps with Laravel, React, and Flutter." />
+    <meta name="twitter:image" content="https://yellow953.github.io/JoeMazloum/profile.jpeg" />
+    <meta name="twitter:image:alt" content="Joe Mazloum, software engineer" />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://yellow953.github.io/JoeMazloum/" />
@@ -69,79 +91,189 @@
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"></script>
 
+    <!--
+      The page is prerendered to static HTML at build time, so its content is in
+      the DOM before React loads. Framer Motion bakes its "hidden" state
+      (opacity:0) into that markup and only clears it once JS runs, so for
+      visitors without JS we force everything visible.
+    -->
+    <noscript>
+      <style>
+        [style*="opacity:0"] { opacity: 1 !important; transform: none !important; }
+      </style>
+    </noscript>
+
     <!-- Structured Data for Google & AI -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Joe Mazloum",
-        "url": "https://yellow953.github.io/JoeMazloum/",
-        "email": "joemazloum953@gmail.com",
-        "sameAs": [
-          "https://github.com/Yellow953",
-          "https://www.linkedin.com/in/joe-mazloum/"
-        ],
-        "jobTitle": "Software Engineer & AI Developer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "DoorEast"
-        },
-        "image": "https://yellow953.github.io/JoeMazloum/favicon.png",
-        "description": "Joe Mazloum is a full-stack software engineer based in Lebanon, specializing in Laravel, Flutter, React, AI integration, n8n automation, and SaaS development. He builds scalable platforms for clients across Europe and the Middle East.",
-        "knowsAbout": [
-          "Laravel", "PHP", "React", "Flutter", "Python", "Ruby on Rails",
-          "AI integration", "Claude API", "n8n automation", "AWS", "MySQL",
-          "PostgreSQL", "Shopify", "SaaS development", "Full-stack development",
-          "Mobile app development", "CRM development", "ERP development",
-          "Point of Sale systems", "E-commerce development", "Firebase"
-        ],
-        "knowsLanguage": ["English", "Arabic", "German", "French"],
-        "hasOccupation": {
-          "@type": "Occupation",
-          "name": "Software Engineer",
-          "occupationLocation": { "@type": "Country", "name": "Lebanon" },
-          "skills": "Laravel, PHP, React, Flutter, Python, AI integration, AWS, n8n, Firebase, MySQL"
-        },
-        "hasCreativeWork": [
+        "@graph": [
           {
-            "@type": "SoftwareApplication",
-            "name": "YellowPOS",
-            "description": "A SaaS Point of Sale platform with a built-in website builder, analytics dashboard, POS terminal, and multi-payment support. Built with Laravel.",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Web",
-            "programmingLanguage": ["PHP", "Laravel", "MySQL", "JavaScript"]
+            "@type": "WebSite",
+            "@id": "https://yellow953.github.io/JoeMazloum/#website",
+            "url": "https://yellow953.github.io/JoeMazloum/",
+            "name": "Joe Mazloum",
+            "description": "Portfolio of Joe Mazloum, software engineer and AI developer.",
+            "inLanguage": "en",
+            "publisher": { "@id": "https://yellow953.github.io/JoeMazloum/#joe" }
           },
           {
-            "@type": "SoftwareApplication",
-            "name": "Nehme Radiators",
-            "description": "A React-powered corporate storefront for a radiator manufacturer, paired with a Firebase-backed admin CRM for product catalogue, orders, and inventory management.",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Web",
-            "programmingLanguage": ["React", "JavaScript", "Firebase", "Firestore"]
+            "@type": "ProfilePage",
+            "@id": "https://yellow953.github.io/JoeMazloum/#profilepage",
+            "url": "https://yellow953.github.io/JoeMazloum/",
+            "name": "Joe Mazloum | Software Engineer, AI Developer & Full-Stack Developer",
+            "isPartOf": { "@id": "https://yellow953.github.io/JoeMazloum/#website" },
+            "about": { "@id": "https://yellow953.github.io/JoeMazloum/#joe" },
+            "mainEntity": { "@id": "https://yellow953.github.io/JoeMazloum/#joe" },
+            "inLanguage": "en"
           },
           {
-            "@type": "SoftwareApplication",
-            "name": "Watania Library",
-            "description": "A dual-purpose Laravel platform: a public online book and stationery shop with nationwide delivery in Lebanon, plus an integrated POS backend for in-store sales.",
-            "applicationCategory": "ShoppingApplication",
-            "operatingSystem": "Web",
-            "programmingLanguage": ["PHP", "Laravel", "MySQL"]
-          },
-          {
-            "@type": "SoftwareApplication",
-            "name": "ESIB Social",
-            "description": "A comprehensive learning platform for engineering students at ESIB, featuring course management, study materials, an academic calculator, subscription tiers, and an admin dashboard.",
-            "applicationCategory": "EducationalApplication",
-            "operatingSystem": "Web",
-            "programmingLanguage": ["PHP", "Laravel", "MySQL"]
-          },
-          {
-            "@type": "SoftwareApplication",
-            "name": "Calories",
-            "description": "A calorie and nutrition tracking application. Users log meals, track macros, and monitor daily progress with a searchable food database and goal-setting tools.",
-            "applicationCategory": "HealthApplication",
-            "operatingSystem": "Web",
-            "programmingLanguage": ["PHP", "Laravel", "MySQL"]
+            "@type": "Person",
+            "@id": "https://yellow953.github.io/JoeMazloum/#joe",
+            "name": "Joe Mazloum",
+            "givenName": "Joe",
+            "familyName": "Mazloum",
+            "url": "https://yellow953.github.io/JoeMazloum/",
+            "mainEntityOfPage": { "@id": "https://yellow953.github.io/JoeMazloum/#profilepage" },
+            "email": "joemazloum953@gmail.com",
+            "sameAs": [
+              "https://github.com/Yellow953",
+              "https://www.linkedin.com/in/joe-mazloum/"
+            ],
+            "jobTitle": "Software Engineer & AI Developer",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "DoorEast"
+            },
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://yellow953.github.io/JoeMazloum/profile.jpeg",
+              "width": 2048,
+              "height": 1536
+            },
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "LB"
+            },
+            "nationality": { "@type": "Country", "name": "Lebanon" },
+            "description": "Joe Mazloum is a full-stack software engineer based in Lebanon, specializing in Laravel, Flutter, React, AI integration, n8n automation, and SaaS development. He builds scalable platforms for clients across Europe and the Middle East.",
+            "knowsAbout": [
+              "Laravel", "PHP", "React", "Flutter", "Python", "Ruby on Rails",
+              "AI integration", "Claude API", "n8n automation", "AWS", "MySQL",
+              "PostgreSQL", "Shopify", "SaaS development", "Full-stack development",
+              "Mobile app development", "CRM development", "ERP development",
+              "Point of Sale systems", "E-commerce development", "Firebase"
+            ],
+            "knowsLanguage": [
+              { "@type": "Language", "name": "English" },
+              { "@type": "Language", "name": "Arabic" },
+              { "@type": "Language", "name": "German" },
+              { "@type": "Language", "name": "French" }
+            ],
+            "hasOccupation": {
+              "@type": "Occupation",
+              "name": "Software Engineer",
+              "occupationLocation": { "@type": "Country", "name": "Lebanon" },
+              "skills": "Laravel, PHP, React, Flutter, Python, AI integration, AWS, n8n, Firebase, MySQL"
+            },
+            "hasCreativeWork": [
+              {
+                "@type": "SoftwareApplication",
+                "name": "YellowPOS",
+                "url": "https://yellow-pos.com",
+                "description": "A SaaS Point of Sale and e-commerce platform. Merchants get a POS terminal, a drag-and-drop website builder, real-time analytics dashboard, product and inventory management, a discount engine, and multi-payment support under one login.",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web",
+                "author": { "@id": "https://yellow953.github.io/JoeMazloum/#joe" },
+                "programmingLanguage": ["PHP", "Laravel", "MySQL", "JavaScript"]
+              },
+              {
+                "@type": "SoftwareApplication",
+                "name": "Yellow Finance",
+                "description": "A Flutter app combining expense tracking, budgets, and monthly reports with a stocks, crypto, and gold watchlist, a Gemini-powered assistant that reads your own data, plus tasks, workouts, and a diary.",
+                "applicationCategory": "FinanceApplication",
+                "operatingSystem": "Android, iOS",
+                "author": { "@id": "https://yellow953.github.io/JoeMazloum/#joe" },
+                "programmingLanguage": ["Flutter", "Dart", "Firebase"]
+              },
+              {
+                "@type": "SoftwareApplication",
+                "name": "Nehme Radiators",
+                "url": "https://www.nehmeradiators.com/",
+                "description": "A React-powered corporate storefront for a 55-year-old radiator manufacturer, paired with a Firebase-backed admin CRM for product catalogue, orders, stock visibility, and real-time inventory management.",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web",
+                "author": { "@id": "https://yellow953.github.io/JoeMazloum/#joe" },
+                "programmingLanguage": ["React", "JavaScript", "Firebase", "Firestore"]
+              },
+              {
+                "@type": "SoftwareApplication",
+                "name": "Watania Library",
+                "url": "https://watanialibrary.com/",
+                "description": "A dual-purpose Laravel platform: a public online book and stationery shop with nationwide delivery in Lebanon, plus an integrated POS backend for in-store walk-in sales, receipts, and stock.",
+                "applicationCategory": "ShoppingApplication",
+                "operatingSystem": "Web",
+                "author": { "@id": "https://yellow953.github.io/JoeMazloum/#joe" },
+                "programmingLanguage": ["PHP", "Laravel", "MySQL"]
+              },
+              {
+                "@type": "SoftwareApplication",
+                "name": "ESIB Social",
+                "url": "https://esibsocial.com/",
+                "description": "A learning platform for engineering students at ESIB, featuring course management, study materials, an academic calculator, subscription tiers, and an admin dashboard tracking 747 users, 354 courses, and 979 sessions.",
+                "applicationCategory": "EducationalApplication",
+                "operatingSystem": "Web",
+                "author": { "@id": "https://yellow953.github.io/JoeMazloum/#joe" },
+                "programmingLanguage": ["PHP", "Laravel", "MySQL"]
+              },
+              {
+                "@type": "SoftwareApplication",
+                "name": "Mecanix",
+                "url": "https://mecanixstocksystem.com",
+                "description": "An all-in-one ERP for warehouse-driven businesses covering inventory (items, purchase orders, sales orders, transfers, stock checks), a CRM with a Kanban task board, and full accounting across multiple warehouses, currencies, and tax rules with role-based access and audit logs.",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web",
+                "author": { "@id": "https://yellow953.github.io/JoeMazloum/#joe" },
+                "programmingLanguage": ["PHP", "Laravel", "MySQL"]
+              },
+              {
+                "@type": "SoftwareApplication",
+                "name": "Sellier & Bellot Range Management",
+                "description": "A shooting range management system handling the full front-desk workflow: customer registration, lane assignment, and transactions tracking whether each pistol and box of ammunition came from the club or the customer, with a full audit trail and database backups.",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web",
+                "author": { "@id": "https://yellow953.github.io/JoeMazloum/#joe" },
+                "programmingLanguage": ["PHP", "Laravel", "MySQL"]
+              },
+              {
+                "@type": "SoftwareApplication",
+                "name": "Mira24K",
+                "description": "A gold jewelry platform combining a customer storefront with category browsing and wishlists, a QR-scanning POS terminal, and a manufacturing catalogue tracking chains by karat, thickness, grams per decimetre, and reseller, with live gold, silver, and exchange rates feeding pricing.",
+                "applicationCategory": "ShoppingApplication",
+                "operatingSystem": "Web",
+                "author": { "@id": "https://yellow953.github.io/JoeMazloum/#joe" },
+                "programmingLanguage": ["PHP", "Laravel", "MySQL"]
+              },
+              {
+                "@type": "SoftwareApplication",
+                "name": "Elma",
+                "description": "An accounting and operations platform for a shipping company. Staff book air, sea, and land shipments with full carrier, vessel, container, and consignee detail, flowing into a double-entry chart of accounts with multi-currency clients and suppliers.",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "Web",
+                "author": { "@id": "https://yellow953.github.io/JoeMazloum/#joe" },
+                "programmingLanguage": ["PHP", "Laravel", "MySQL"]
+              },
+              {
+                "@type": "SoftwareApplication",
+                "name": "Calories",
+                "url": "http://calories-shop.com/",
+                "description": "A calorie and nutrition tracking application. Users log meals, track macros, and monitor daily progress with a searchable food database and goal-setting tools.",
+                "applicationCategory": "HealthApplication",
+                "operatingSystem": "Web",
+                "author": { "@id": "https://yellow953.github.io/JoeMazloum/#joe" },
+                "programmingLanguage": ["PHP", "Laravel", "MySQL"]
+              }
+            ]
           }
         ]
       }
@@ -152,161 +284,5 @@
     <script
       type="module"
       src="/src/main.jsx"></script>
-
-    <!-- Static content for AI crawlers and non-JS environments -->
-    <noscript>
-      <main style="font-family:sans-serif;max-width:900px;margin:0 auto;padding:2rem;color:#111;line-height:1.7">
-
-        <section id="hero">
-          <h1>Joe Mazloum</h1>
-          <p>Software Engineer &amp; AI Developer | Full-Stack | Laravel · Flutter · React · Python · n8n</p>
-        </section>
-
-        <section id="about">
-          <h2>About Joe Mazloum</h2>
-          <p>I'm <strong>Joe Mazloum</strong>, a passionate software engineer specializing in building scalable SaaS platforms, CRMs, ERPs, mobile apps, and AI-powered solutions. My expertise spans <strong>Laravel</strong>, <strong>Flutter</strong>, <strong>AI &amp; automation</strong>, and full-stack development, with a proven track record in high-performance, user-friendly apps and systems.</p>
-          <p>I've delivered solutions across Europe and the Middle East, modernizing legacy systems, improving performance, and shipping polished products. Expect clean code, efficient systems, and a collaborative partner.</p>
-          <p>Contact: <a href="mailto:joemazloum953@gmail.com">joemazloum953@gmail.com</a></p>
-        </section>
-
-        <section id="skills">
-          <h2>Skills</h2>
-
-          <article>
-            <h3>PHP &amp; Laravel</h3>
-            <p>Expert in architecting and developing scalable SaaS platforms, backend systems, and full-stack web applications using Laravel. Built and shipped SaaS products from the ground up, and developed numerous inventory management, accounting systems, and POS solutions. Delivered multi-currency and multi-language CRMs and ERPs, optimized for high-traffic environments. Implemented secure authentication, role-based access, and third-party service integrations.</p>
-          </article>
-
-          <article>
-            <h3>JavaScript &amp; React</h3>
-            <p>Proficient in building dynamic Single Page Applications (SPAs) and interactive, user-friendly interfaces using React. Experienced in implementing offline synchronization, responsive design, and state management. Focused on delivering optimized, modern, and scalable UI solutions.</p>
-          </article>
-
-          <article>
-            <h3>Ruby on Rails</h3>
-            <p>Designed and implemented robust backend features with Ruby on Rails, enabling scalable and maintainable applications. Improved user engagement by optimizing APIs, database queries, and background jobs. Collaborated across multiple teams to ensure seamless integration and on-time project delivery.</p>
-          </article>
-
-          <article>
-            <h3>Python</h3>
-            <p>Developed advanced automation bots using Python and Selenium, reducing manual testing time by 70%. Built robust web backends with Django. Created scrapers and crypto trading bots leveraging machine learning. Delivered clean, modular, and scalable code.</p>
-          </article>
-
-          <article>
-            <h3>Database</h3>
-            <p>Skilled in designing and managing databases with MySQL, PostgreSQL, and SQLite. Experienced in Laravel migrations, seeders, factories, and data import/export, with a focus on performance and scalability.</p>
-          </article>
-
-          <article>
-            <h3>Flutter</h3>
-            <p>Built cross-platform mobile applications with Flutter, delivering smooth, native-like user experiences. Applied MVC architecture for maintainable code and GetX for state management. Integrated apps with backend systems for real-time updates and Firebase services. Integrated AI chatbots into mobile apps.</p>
-          </article>
-
-          <article>
-            <h3>Shopify</h3>
-            <p>Customized Shopify stores and themes, optimized product pages, and integrated upselling strategies. Improved performance and conversions with tailored e-commerce solutions.</p>
-          </article>
-
-          <article>
-            <h3>Server Deployments (Git, AWS, Linux, Cloudflare)</h3>
-            <p>Proficient in deploying and managing applications across AWS cloud infrastructure (EC2, S3, Route53, VPS, Load Balancers, Auto Scaling) and traditional hosting. Configured and maintained Linux servers using Apache and Nginx, with automated CI/CD pipelines. Leveraged Cloudflare for DNS, CDN, DDoS protection, and performance optimization.</p>
-          </article>
-
-          <article>
-            <h3>AI &amp; Automation (Claude, n8n)</h3>
-            <p>Integrated AI capabilities into web and mobile applications using Claude (Anthropic) and other LLM APIs, enabling intelligent features such as natural language processing, content generation, and smart assistants. Built automation pipelines with n8n, connecting APIs, databases, and services to streamline business processes. Experienced in prompt engineering, tool use, and building production-ready AI-powered features.</p>
-          </article>
-        </section>
-
-        <section id="languages">
-          <h2>Languages</h2>
-          <ul>
-            <li>English — Fluent</li>
-            <li>Arabic — Native</li>
-            <li>German — Professional</li>
-            <li>French — Conversational</li>
-          </ul>
-        </section>
-
-        <section id="projects">
-          <h2>Projects by Joe Mazloum</h2>
-
-          <article>
-            <h3>YellowPOS — SaaS Point of Sale Platform</h3>
-            <p>A full SaaS POS and e-commerce platform built with Laravel. Merchants get a built-in POS terminal, a drag-and-drop website builder, real-time analytics dashboard, product and inventory management, a discount engine, and multi-payment support — all under one login.</p>
-            <p>Stack: Laravel, PHP, MySQL, SaaS, E-commerce</p>
-          </article>
-
-          <article>
-            <h3>Nehme Radiators — Corporate Site &amp; Admin CRM</h3>
-            <p>A React-powered public storefront for a 55-year-old radiator manufacturer in Lebanon, paired with a Firebase-backed admin CRM. Staff manage the full product catalogue, track orders, control stock visibility, and handle inventory in real time.</p>
-            <p>Stack: React, Firebase, Firestore, CRM, JavaScript</p>
-          </article>
-
-          <article>
-            <h3>Watania Library — Book Shop &amp; POS Backend</h3>
-            <p>A dual-purpose Laravel platform: a public-facing shop for books, stationery, and school supplies across Lebanon, paired with a dedicated POS backend for in-store staff to handle walk-in sales, receipts, and stock in one system.</p>
-            <p>Stack: Laravel, PHP, MySQL, POS, E-commerce</p>
-          </article>
-
-          <article>
-            <h3>ESIB Social — Engineering Student Learning Platform</h3>
-            <p>A comprehensive learning hub built for ESIB engineering students in Lebanon. Features course management, study materials, a built-in academic calculator, subscription tiers, and a full admin dashboard tracking 747 users, 354 courses, and 979 sessions.</p>
-            <p>Stack: Laravel, PHP, MySQL, E-learning, SaaS</p>
-          </article>
-
-          <article>
-            <h3>Calories — Nutrition &amp; Calorie Tracker</h3>
-            <p>A clean calorie and nutrition tracking application. Users log daily meals, track macros, and monitor progress over time. Features a searchable food database, daily summaries, and goal-setting tools to support healthier eating habits.</p>
-            <p>Stack: Laravel, PHP, MySQL, Health, Mobile-ready</p>
-          </article>
-        </section>
-
-        <section id="experience">
-          <h2>Work Experience</h2>
-
-          <article>
-            <h3>Lead Software Engineer — DoorEast</h3>
-            <p><time>Jan 2025 – Present</time></p>
-            <p>Led development of a large-scale real estate marketplace, delivering a seamless user experience across Angular web and Flutter mobile applications. Built and maintained a Laravel backend powering advanced property search, listings, and transactions. Deployed and scaled infrastructure on AWS (Route53, S3, EC2, VPS) with load balancing and auto-scaling, ensuring high availability and performance. Supported thousands of active users.</p>
-          </article>
-
-          <article>
-            <h3>PHP Software Developer — Göckler GMBH</h3>
-            <p><time>Nov 2023 – Oct 2024</time></p>
-            <p>Modernized legacy PHP websites and CMS, upgrading from Xtcommerce 5 to 6.5 and Shopware 6, improving platform stability. Optimized performance, reducing load times and boosting sales by 25% through design enhancements, popups, and upsell strategies.</p>
-          </article>
-
-          <article>
-            <h3>Quality Assurance Developer — INTALIO</h3>
-            <p><time>May 2023 – Oct 2023</time></p>
-            <p>Developed a Python Selenium automation bot, reducing manual testing time by 70% and improving bug detection accuracy. Created comprehensive User/Admin guides, reducing support requests by 30%.</p>
-          </article>
-
-          <article>
-            <h3>Ruby on Rails Developer — IStay</h3>
-            <p><time>Oct 2022 – Apr 2023</time></p>
-            <p>Built responsive, user-focused front-end websites, increasing engagement by 15%. Designed and implemented robust backend functionalities with Ruby on Rails. Improved workflow integration using Git/GitHub.</p>
-          </article>
-
-          <article>
-            <h3>Laravel Full Stack Developer — Eddy's Group</h3>
-            <p><time>2020 – 2021</time></p>
-            <p>Architected and deployed CRM and ERP web solutions with Laravel and Bootstrap, improving efficiency by 20%. Developed mobile apps integrated with backend systems. Managed Linux server deployments, decreasing downtime by 15%.</p>
-          </article>
-        </section>
-
-        <section id="contact">
-          <h2>Connect with Joe Mazloum</h2>
-          <p>Open to new projects, creative ideas, and opportunities. Whether you need a Laravel expert, AI integration specialist, mobile developer, or skilled full-stack engineer, reach out.</p>
-          <ul>
-            <li>Email: <a href="mailto:joemazloum953@gmail.com">joemazloum953@gmail.com</a></li>
-            <li>GitHub: <a href="https://github.com/Yellow953">github.com/Yellow953</a></li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/joe-mazloum/">linkedin.com/in/joe-mazloum</a></li>
-          </ul>
-        </section>
-
-      </main>
-    </noscript>
   </body>
 </html>
