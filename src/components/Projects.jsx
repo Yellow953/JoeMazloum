@@ -10,6 +10,14 @@ import yellowPos1        from "../assets/projects/yellow-pos/yellow-pos-1.png";
 import yellowPos2        from "../assets/projects/yellow-pos/yellow-pos-2.png";
 import yellowPos3        from "../assets/projects/yellow-pos/yellow-pos-3.png";
 
+// Trendy Closet
+import trendyHome       from "../assets/projects/trendy-closet/trendy-closet-home.png";
+import trendyShop       from "../assets/projects/trendy-closet/trendy-closet-shop.png";
+import trendyProduct    from "../assets/projects/trendy-closet/trendy-closet-product.png";
+import trendyLogin      from "../assets/projects/trendy-closet/trendy-closet-login.png";
+import trendyDashboard  from "../assets/projects/trendy-closet/trendy-closet-dashboard.png";
+import trendyCategories from "../assets/projects/trendy-closet/trendy-closet-categories.png";
+
 // Nehme Radiators
 import nehmeHome  from "../assets/projects/nehme-radiators/nehme-radiators.png";
 import nehmeShop  from "../assets/projects/nehme-radiators/nehme-radiators-1.png";
@@ -86,6 +94,14 @@ const projects = [
     tags: ["Flutter", "Dart", "Firebase", "Gemini AI", "Mobile"],
     images: [yf1, yf2, yf3, yf4, yf5, yf6, yf7, yf8, yf9, yf10],
     type: "mobile",
+  },
+  {
+    title: "Trendy Closet",
+    subtitle: "Fashion Storefront & Inventory Backend",
+    description:
+      "A fashion e-commerce storefront for a Lebanon-based clothing brand, paired with a full back-office system. Customers browse by category, colour, and size across dozens of live products, while staff manage the catalogue, categories, orders, and stock levels through a dedicated admin dashboard.",
+    tags: ["React", "E-commerce", "Inventory", "Admin Dashboard"],
+    images: [trendyHome, trendyShop, trendyProduct, trendyLogin, trendyDashboard, trendyCategories],
   },
   {
     title: "Nehme Radiators",
@@ -276,7 +292,7 @@ function PhoneFrame({ height, children }) {
 }
 
 /* ── Image carousel ── */
-function ImageCarousel({ images, height, phone, phoneHeight }) {
+function ImageCarousel({ images, height, phone, phoneHeight, onAspectRatio }) {
   const [index, setIndex]    = useState(0);
   const [direction, setDir]  = useState(1);
   const [hovering, setHover] = useState(false);
@@ -310,6 +326,12 @@ function ImageCarousel({ images, height, phone, phoneHeight }) {
           alt={`screenshot ${index + 1}`}
           loading="lazy"
           decoding="async"
+          onLoad={(e) => {
+            if (!phone && onAspectRatio) {
+              const { naturalWidth: w, naturalHeight: h } = e.target;
+              if (w && h) onAspectRatio(w / h);
+            }
+          }}
           style={{ width: "100%", height: "100%", objectFit: phone ? "cover" : "contain", display: "block" }}
         />
       </motion.div>
@@ -400,6 +422,7 @@ function ProjectRow({ project, index, isMobile }) {
   const isPhone = project.type === "mobile";
   const imgH    = isPhone ? (isMobile ? 430 : 620) : (isMobile ? 260 : 420);
   const phoneH  = isMobile ? 350 : 520;
+  const [ratio, setRatio] = useState(null);
 
   const imgVariant = {
     hidden:  { opacity: 0, x: isMobile ? 0 : (isEven ? -60 : 60), y: isMobile ? 30 : 0 },
@@ -434,9 +457,11 @@ function ProjectRow({ project, index, isMobile }) {
         {isPhone ? (
           <ImageCarousel images={project.images} height={imgH} phone phoneHeight={phoneH} />
         ) : (
-          <BrowserFrame url={project.link}>
-            <ImageCarousel images={project.images} height={imgH} />
-          </BrowserFrame>
+          <div style={{ width: ratio ? `min(100%, ${imgH * ratio}px)` : "100%", margin: "0 auto", transition: "width 0.35s ease" }}>
+            <BrowserFrame url={project.link}>
+              <ImageCarousel images={project.images} height={imgH} onAspectRatio={setRatio} />
+            </BrowserFrame>
+          </div>
         )}
       </motion.div>
 
