@@ -36,6 +36,10 @@ Stack: Laravel, PHP, MySQL, SaaS, E-commerce
 A Flutter app for money and habits in one place. Expense tracking, budgets, and monthly reports sit alongside a stocks, crypto, and gold watchlist, a Gemini-powered assistant that reads your own data, plus tasks, workouts, and a diary.
 Stack: Flutter, Dart, Firebase, Gemini AI, Mobile
 
+### Trendy Closet — Fashion Storefront & Inventory Backend
+A fashion e-commerce storefront for a Lebanon-based clothing brand, paired with a full back-office system. Customers browse by category, colour, and size across dozens of live products, while staff manage the catalogue, categories, orders, and stock levels through a dedicated admin dashboard.
+Stack: React, E-commerce, Inventory, Admin Dashboard
+
 ### Nehme Radiators — Corporate Site & Admin CRM (https://www.nehmeradiators.com/)
 A React-powered public storefront for a 55-year-old radiator manufacturer, paired with a Firebase-backed admin CRM. Staff manage the full product catalogue, track orders, control stock visibility, and handle inventory in real time.
 Stack: React, Firebase, Firestore, CRM, JavaScript
