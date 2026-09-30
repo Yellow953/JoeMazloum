@@ -45,7 +45,8 @@ This is a single-page personal portfolio site for Joe Mazloum, built with React 
 
 **SEO / GEO surfaces** — when project or experience content changes, update these in step, since
 they are hand-maintained copies of what's in the components: the JSON-LD `@graph` in `index.html`
-(the `Person.hasCreativeWork` list mirrors `projects` in `Projects.jsx`), `public/llms.txt`, and
-`public/sitemap.xml` (`lastmod`).
+(the `Person.hasCreativeWork` list mirrors `projects` in `Projects.jsx`), `public/llms.txt`,
+`public/llms-full.txt` (long-form copy of every section, including the full skill and experience
+text), and `public/sitemap.xml` (`lastmod`).
 
 **Static assets** (profile image, etc.) live in `public/` and are referenced without a path prefix (e.g., `"profile.jpeg"`).

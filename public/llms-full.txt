@@ -1,0 +1,185 @@
+# Joe Mazloum — Full Profile
+
+> Joe Mazloum is a software engineer and AI developer based in Lebanon, specializing in full-stack web development, mobile apps, and AI-powered automation. He builds scalable SaaS platforms, CRMs, ERPs, POS systems, and intelligent systems for clients across Europe and the Middle East. He is currently Lead Software Engineer at DoorEast.
+
+This is the complete, long-form version of https://yellow953.github.io/JoeMazloum/llms.txt, containing the full text of every section of Joe Mazloum's portfolio at https://yellow953.github.io/JoeMazloum/.
+
+## Quick Facts
+
+- Name: Joe Mazloum
+- Role: Software Engineer, AI Developer, Full-Stack Developer
+- Current position: Lead Software Engineer at DoorEast (Jan 2025 – present)
+- Location: Lebanon
+- Experience: 5+ years of professional software engineering (since 2020)
+- Core stack: Laravel (PHP), React, Flutter, Python, Ruby on Rails, MySQL, Firebase
+- AI: Claude (Anthropic), OpenAI (ChatGPT), Google Gemini, Claude Code, Google Antigravity, n8n
+- Cloud: AWS, Google Cloud, Oracle Cloud, Firebase, Cloudflare
+- Spoken languages: English (fluent), Arabic (native), German (professional), French (conversational)
+- Markets served: Lebanon, Germany, the broader Middle East and Europe
+- Availability: open to freelance projects, full-time roles, and consulting engagements
+- Email: joemazloum953@gmail.com
+- Portfolio: https://yellow953.github.io/JoeMazloum/
+- GitHub: https://github.com/Yellow953
+- LinkedIn: https://www.linkedin.com/in/joe-mazloum/
+
+## About
+
+I'm Joe Mazloum, a passionate software engineer specializing in building scalable SaaS platforms, CRMs, ERPs, mobile apps, and AI-powered solutions. My expertise spans Laravel, Flutter, AI & automation, and full-stack development, with a proven track record in high-performance, user-friendly apps and systems.
+
+I've delivered solutions across Europe and the Middle East modernizing legacy systems, improving performance, and shipping polished products. Expect clean code, efficient systems, and a collaborative partner.
+
+## Skills
+
+### PHP & Laravel
+Expert in architecting and developing scalable SaaS platforms, backend systems, and full-stack web applications using Laravel. Built and shipped SaaS products from the ground up, and developed numerous inventory management, accounting systems, and POS (Point of Sale) solutions tailored to business needs. Delivered multi-currency and multi-language CRMs and ERPs, optimized for high-traffic environments with API integrations. Designed modular architectures to support rapid feature expansion, improving maintainability and scalability. Implemented secure authentication, role-based access, and third-party service integrations, ensuring enterprise-grade performance and reliability.
+
+### JavaScript & React
+Proficient in building dynamic Single Page Applications (SPAs) and interactive, user-friendly interfaces using React. Experienced in implementing offline synchronization, responsive design, and state management. Skilled in modern frontend workflows, smooth animations and transitions with Framer Motion, enhancing overall user experience. Focused on delivering optimized, modern and scalable UI solutions that enhance user engagement.
+
+### Ruby on Rails
+Designed and implemented robust backend features with Ruby on Rails, enabling scalable and maintainable applications. Improved user engagement by optimizing APIs, database queries, and background jobs. Collaborated across multiple teams to ensure seamless integration and on-time project delivery, while maintaining high code quality through testing, version control, and CI/CD workflows.
+
+### Python
+Developed advanced automation bots using Python and Selenium, reducing manual testing time by 70% and improving bug detection accuracy. Built robust web backends with Django, including RESTful APIs and admin dashboards. Created scrapers for booking and flights websites, extracting and processing large datasets efficiently. Developed crypto trading bots leveraging machine learning and data analysis to identify patterns and automate trading decisions. Also built interactive applications with Pygame and general-purpose automation scripts. Delivered clean, modular, and scalable code.
+
+### Database (SQL & NoSQL)
+Skilled in designing and managing both relational (SQL) and non-relational (NoSQL) databases. On the SQL side, works with MySQL, PostgreSQL, and SQLite: normalized schema design, indexing, complex joins and aggregate queries, transactions for data integrity in accounting and POS systems, and query optimization for high-traffic apps. Experienced in Laravel migrations, seeders, factories, and data import/export. On the NoSQL side, builds with Firebase Firestore: document and collection modelling, denormalization for fast reads, real-time listeners, and security rules for web and mobile apps. Chooses the right model for each project, with a focus on performance, scalability, and maintainable data design.
+
+### Flutter
+Built cross-platform mobile applications with Flutter, delivering smooth, native-like user experiences. Applied MVC architecture for maintainable code structure and GetX for state management, routing, and dependency injection. Integrated apps with backend systems for real-time updates and Firebase services. Integrated AI chatbots into mobile apps to enhance user interaction and deliver intelligent, context-aware experiences.
+
+### Shopify
+Customized Shopify stores and themes, optimized product pages, and integrated upselling strategies. Improved performance and conversions with tailored e-commerce solutions.
+
+### Server Deployments (Git, AWS, Google Cloud, Oracle Cloud, Firebase, Linux, Cloudflare)
+Proficient in deploying and managing applications across AWS, Google Cloud, and Oracle Cloud infrastructure as well as traditional shared hosting providers. Skilled with AWS EC2, S3, Route53, VPS, Load Balancers, and Auto Scaling groups, ensuring high availability, security, and cost optimization. Provisioned and maintained compute instances, networking, and firewall rules on Google Cloud Platform and Oracle Cloud Infrastructure (OCI). Used Firebase as a managed backend for authentication, Firestore, and real-time data in web and mobile apps. Configured and maintained Linux servers using Git, Apache, and Nginx, with automated CI/CD pipelines. Leveraged Cloudflare for DNS management, CDN, DDoS protection, and performance optimization. Experienced with Server-Side Rendering (SSR) setups to improve SEO and initial load performance. Also experienced in shared hosting environments on platforms like InMotion Hosting, Bluehost, Hostinger, and GoDaddy.
+
+### AI & Automation (Claude, ChatGPT, Gemini, Claude Code, Antigravity, n8n)
+Integrated AI capabilities into web and mobile applications using Claude (Anthropic) and other LLM APIs, enabling intelligent features such as natural language processing, content generation, and smart assistants. Wired OpenAI (ChatGPT) and Google Gemini models directly into application code to analyze data on request, turning raw records into summaries and insights, and to power chatbots that understand and reply to user messages. Leveraged agentic coding tools such as Claude Code and Google Antigravity for AI-assisted development workflows, from planning and refactoring to debugging and shipping features. Built automation pipelines with n8n, connecting APIs, databases, and services to streamline business processes and reduce manual overhead. Experienced in prompt engineering, tool use, and building production-ready AI-powered features.
+
+### Spoken Languages
+English (fluent), Arabic (native), German (professional), French (conversational).
+
+## Work Experience
+
+### Lead Software Engineer — DoorEast (Jan 2025 – Present)
+Led development of a large-scale real estate marketplace, delivering a seamless user experience across Angular web and Flutter mobile applications. Built and maintained a Laravel backend powering advanced property search, listings, and transactions, alongside a React CRM that lets the team manage listings, leads, and clients. Wrote Python automation scripts to streamline internal workflows and data processing. Deployed and scaled infrastructure on AWS (Route53, S3, EC2, VPS) with load balancing and auto-scaling, ensuring high availability and performance. Improved deployment pipelines and system reliability, supporting thousands of active users.
+
+- Website: https://dooreast.com
+- CRM: https://crm.dooreast.com
+- iOS app: https://apps.apple.com/us/app/dooreast-lebanon-real-estate/id6741559405
+- Android app: https://play.google.com/store/apps/details?id=com.app.dooreast&hl=en
+
+### PHP Software Developer — Göckler GMBH (Nov 2023 – Oct 2024)
+Modernized legacy PHP websites and CMS, upgrading from Xtcommerce 5 to 6.5 and Shopware 6, improving platform stability. Optimized performance, reducing load times and boosting sales by 25% through design enhancements, popups, and upsell strategies. Delivered backend and frontend features ahead of schedule, enhancing client satisfaction.
+
+### Quality Assurance Developer — INTALIO (May 2023 – Oct 2023)
+Developed a Python Selenium automation bot, reducing manual testing time by 70% and improving bug detection accuracy. Created comprehensive User/Admin guides, reducing support requests by 30%. Enhanced software quality via rigorous testing and detailed test cases.
+
+### Ruby on Rails Developer — IStay (Oct 2022 – Apr 2023)
+Built responsive, user-focused front-end websites, increasing engagement by 15%. Designed and implemented robust backend functionalities with Ruby on Rails, ensuring smooth cross-team delivery. Improved workflow integration using Git/GitHub.
+
+### Laravel Full Stack Developer — Eddy's Group (2020 – 2021)
+Architected and deployed CRM and ERP web solutions with Laravel and Bootstrap, improving efficiency by 20%. Developed mobile apps integrated with backend systems, increasing client accessibility. Managed Linux server deployments, decreasing downtime by 15%.
+
+## Projects
+
+All projects below were built by Joe Mazloum.
+
+### YellowPOS — SaaS Point of Sale Platform
+- Live: https://yellow-pos.com
+- Platform: Web
+- Stack: Laravel, PHP, MySQL, SaaS, E-commerce
+
+A full SaaS POS and e-commerce platform. Merchants get a built-in POS terminal, a drag-and-drop website builder, real-time analytics dashboard, product and inventory management, a discount engine, and multi-payment support — all under one login.
+
+### Yellow Finance — Personal Finance & Life Tracker
+- Platform: Mobile (Android, iOS)
+- Stack: Flutter, Dart, Firebase, Gemini AI
+
+A Flutter app for money and habits in one place. Expense tracking, budgets, and monthly reports sit alongside a stocks, crypto, and gold watchlist, a Gemini-powered assistant that reads your own data, plus tasks, workouts, and a diary.
+
+### Trendy Closet — Fashion Storefront & Inventory Backend
+- Platform: Web
+- Stack: React, E-commerce, Inventory, Admin Dashboard
+
+A fashion e-commerce storefront for a Lebanon-based clothing brand, paired with a full back-office system. Customers browse by category, colour, and size across dozens of live products, while staff manage the catalogue, categories, orders, and stock levels through a dedicated admin dashboard.
+
+### Yellow Connect — Private VPN, Speed Test & IP Checker
+- Platform: Mobile (Android, iOS)
+- Stack: WireGuard, VPN, Networking, Privacy
+
+A custom private VPN app running on a self-hosted WireGuard server. One tap routes traffic through the encrypted tunnel, with an optional connect-on-launch setting. It also includes a download and upload speed test with a live gauge and saved history, and an IP checker that shows the address, city, country, provider, and time zone websites can see.
+
+### Nehme Radiators — Corporate Site & Admin CRM
+- Live: https://www.nehmeradiators.com/
+- Platform: Web
+- Stack: React, Firebase, Firestore, CRM, JavaScript
+
+A React-powered public storefront for a 55-year-old radiator manufacturer, paired with a Firebase-backed admin CRM. Staff manage the full product catalogue, track orders, control stock visibility, and handle inventory — all in real time.
+
+### Watania Library — Book Shop & POS Backend
+- Live: https://watanialibrary.com/
+- Platform: Web
+- Stack: Laravel, PHP, MySQL, POS, E-commerce
+
+A dual-purpose Laravel platform: a public-facing shop for books, stationery, and school supplies across Lebanon, paired with a dedicated POS backend for in-store staff to handle walk-in sales, receipts, and stock in one system.
+
+### ESIB Social — Engineering Student Learning Platform
+- Live: https://esibsocial.com/
+- Platform: Web
+- Stack: Laravel, PHP, MySQL, E-learning, SaaS
+
+A comprehensive learning hub built for ESIB engineering students. Features course management, study materials, a built-in academic calculator, subscription tiers, and a full admin dashboard tracking 747 users, 354 courses, and 979 sessions.
+
+### Mecanix — Stock Management, CRM & Accounting
+- Live: https://mecanixstocksystem.com
+- Platform: Web
+- Stack: Laravel, PHP, MySQL, ERP, Accounting
+
+An all-in-one ERP for warehouse-driven businesses. Handles inventory (items, purchase orders, sales orders, transfers, stock checks), a CRM with a Kanban task board, and full accounting — invoices, cash receipts, credit and debit notes — across multiple warehouses, currencies, and tax rules with role-based access and audit logs.
+
+### Sellier & Bellot — Shooting Range Management System
+- Platform: Web
+- Stack: Laravel, PHP, MySQL, POS, Management
+
+A range management system handling the full front-desk workflow. Staff register customers, assign lanes, and build transactions that track whether each pistol and box of ammo came from the club or the customer — priced per item, closed out at the counter, and logged with a full audit trail and database backups.
+
+### Mira24K — Jewelry Storefront, POS & Manufacturing
+- Platform: Web
+- Stack: Laravel, PHP, MySQL, POS, E-commerce
+
+A complete platform for a gold jewelry business. A customer-facing storefront with category browsing and wishlists sits on top of a QR-scanning POS terminal and a manufacturing catalogue tracking chains by karat, thickness, grams per decimetre, and reseller. Live gold, silver, and exchange rates feed pricing across the whole system.
+
+### Elma — Freight Forwarding & Accounting System
+- Platform: Web
+- Stack: Laravel, PHP, MySQL, Logistics, Accounting
+
+An accounting and operations platform for a shipping company. Staff book air, sea, and land shipments with full carrier, vessel, container, and consignee detail, then flow them straight into a double-entry chart of accounts — sales orders, invoices, payments, and credit notes — with multi-currency clients and suppliers tracked end to end.
+
+### Calories — Nutrition & Calorie Tracker
+- Live: http://calories-shop.com/
+- Platform: Web
+- Stack: Laravel, PHP, MySQL, Health, Mobile-ready
+
+A clean calorie and nutrition tracking app. Users log daily meals, track macros, and monitor progress over time. Features a searchable food database, daily summaries, and goal-setting tools to support healthier eating habits.
+
+## Key Capabilities
+
+- Building AI-powered features into web and mobile applications
+- Architecting multi-tenant SaaS systems from scratch
+- Building POS, ERP, CRM, inventory, and accounting systems
+- Automating business workflows with n8n and Python
+- Migrating and modernizing legacy systems (PHP, CMS, e-commerce)
+- Deploying and scaling cloud infrastructure on AWS, Google Cloud, and Oracle Cloud
+- Cross-platform mobile development with Flutter
+- Full-stack development: backend APIs, frontend SPAs, mobile apps
+
+## Contact
+
+Joe Mazloum is available for freelance projects, full-time roles, and consulting engagements.
+
+- Email: joemazloum953@gmail.com
+- GitHub: https://github.com/Yellow953
+- LinkedIn: https://www.linkedin.com/in/joe-mazloum/
+- Portfolio: https://yellow953.github.io/JoeMazloum/
