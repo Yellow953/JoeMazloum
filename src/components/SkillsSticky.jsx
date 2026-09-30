@@ -87,9 +87,9 @@ function SkillsSticky() {
         "https://raw.githubusercontent.com/github/explore/main/topics/python/python.png",
     },
     {
-      name: "Database",
+      name: "Database (SQL & NoSQL)",
       description:
-        "Skilled in designing and managing databases with MySQL, PostgreSQL, and SQLite. Experienced in Laravel migrations, seeders, factories, and data import/export, with a focus on performance, scalability, and maintainable schema design for web and mobile applications.",
+        "Skilled in designing and managing both relational (SQL) and non-relational (NoSQL) databases. On the SQL side, works with MySQL, PostgreSQL, and SQLite: normalized schema design, indexing, complex joins and aggregate queries, transactions for data integrity in accounting and POS systems, and query optimization for high-traffic apps. Experienced in Laravel migrations, seeders, factories, and data import/export. On the NoSQL side, builds with Firebase Firestore: document and collection modelling, denormalization for fast reads, real-time listeners, and security rules for web and mobile apps. Chooses the right model for each project, with a focus on performance, scalability, and maintainable data design.",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/mysql/mysql.png",
     },
@@ -108,16 +108,16 @@ function SkillsSticky() {
         "https://cdn.freebiesupply.com/logos/large/2x/shopify-logo-png-transparent.png",
     },
     {
-      name: "Server Deployments (Git, AWS, Linux, Cloudflare)",
+      name: "Server Deployments (Git, AWS, Google Cloud, Oracle Cloud, Firebase, Linux, Cloudflare)",
       description:
-        "Proficient in deploying and managing applications across AWS cloud infrastructure and traditional shared hosting providers. Skilled with AWS EC2, S3, Route53, VPS, Load Balancers, and Auto Scaling groups, ensuring high availability, security, and cost optimization. Configured and maintained Linux servers using Git, Apache, and Nginx, with automated CI/CD pipelines. Leveraged Cloudflare for DNS management, CDN, DDoS protection, and performance optimization. Experienced with Server-Side Rendering (SSR) setups to improve SEO and initial load performance. Also experienced in shared hosting environments on platforms like InMotion Hosting, Bluehost, Hostinger, and GoDaddy.",
+        "Proficient in deploying and managing applications across AWS, Google Cloud, and Oracle Cloud infrastructure as well as traditional shared hosting providers. Skilled with AWS EC2, S3, Route53, VPS, Load Balancers, and Auto Scaling groups, ensuring high availability, security, and cost optimization. Provisioned and maintained compute instances, networking, and firewall rules on Google Cloud Platform and Oracle Cloud Infrastructure (OCI). Used Firebase as a managed backend for authentication, Firestore, and real-time data in web and mobile apps. Configured and maintained Linux servers using Git, Apache, and Nginx, with automated CI/CD pipelines. Leveraged Cloudflare for DNS management, CDN, DDoS protection, and performance optimization. Experienced with Server-Side Rendering (SSR) setups to improve SEO and initial load performance. Also experienced in shared hosting environments on platforms like InMotion Hosting, Bluehost, Hostinger, and GoDaddy.",
       image:
         "https://raw.githubusercontent.com/github/explore/main/topics/linux/linux.png",
     },
     {
-      name: "AI & Automation (Claude, n8n)",
+      name: "AI & Automation (Claude, ChatGPT, Gemini, Claude Code, Antigravity, n8n)",
       description:
-        "Integrated AI capabilities into web and mobile applications using Claude (Anthropic) and other LLM APIs, enabling intelligent features such as natural language processing, content generation, and smart assistants. Leveraged Claude Code for AI-assisted development workflows. Built automation pipelines with n8n, connecting APIs, databases, and services to streamline business processes and reduce manual overhead. Experienced in prompt engineering, tool use, and building production-ready AI-powered features.",
+        "Integrated AI capabilities into web and mobile applications using Claude (Anthropic) and other LLM APIs, enabling intelligent features such as natural language processing, content generation, and smart assistants. Wired OpenAI (ChatGPT) and Google Gemini models directly into application code to analyze data on request, turning raw records into summaries and insights, and to power chatbots that understand and reply to user messages. Leveraged agentic coding tools such as Claude Code and Google Antigravity for AI-assisted development workflows, from planning and refactoring to debugging and shipping features. Built automation pipelines with n8n, connecting APIs, databases, and services to streamline business processes and reduce manual overhead. Experienced in prompt engineering, tool use, and building production-ready AI-powered features.",
       image:
         "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/anthropic.svg",
     },

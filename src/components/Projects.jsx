@@ -68,6 +68,13 @@ import yf8        from "../assets/projects/yellow-finance/sports.png";
 import yf9        from "../assets/projects/yellow-finance/diary.png";
 import yf10       from "../assets/projects/yellow-finance/profile.png";
 
+// Yellow Connect (mobile)
+import yc1        from "../assets/projects/yellow-connect/onboarding.png";
+import yc2        from "../assets/projects/yellow-connect/vpn.png";
+import yc3        from "../assets/projects/yellow-connect/speed-test.png";
+import yc4        from "../assets/projects/yellow-connect/ip-checker.png";
+import yc5        from "../assets/projects/yellow-connect/settings.png";
+
 // Calories
 import cal1       from "../assets/projects/calories/calories-1.png";
 import cal2       from "../assets/projects/calories/calories-2.png";
@@ -102,6 +109,15 @@ const projects = [
       "A fashion e-commerce storefront for a Lebanon-based clothing brand, paired with a full back-office system. Customers browse by category, colour, and size across dozens of live products, while staff manage the catalogue, categories, orders, and stock levels through a dedicated admin dashboard.",
     tags: ["React", "E-commerce", "Inventory", "Admin Dashboard"],
     images: [trendyHome, trendyShop, trendyProduct, trendyLogin, trendyDashboard, trendyCategories],
+  },
+  {
+    title: "Yellow Connect",
+    subtitle: "Private VPN, Speed Test & IP Checker",
+    description:
+      "A custom private VPN app running on my own WireGuard server. One tap routes traffic through the encrypted tunnel, with an optional connect-on-launch setting. It also includes a download and upload speed test with a live gauge and saved history, and an IP checker that shows the address, city, country, provider, and time zone websites can see.",
+    tags: ["WireGuard", "VPN", "Networking", "Privacy", "Mobile"],
+    images: [yc1, yc2, yc3, yc4, yc5],
+    type: "mobile",
   },
   {
     title: "Nehme Radiators",
@@ -296,18 +312,43 @@ function ImageCarousel({ images, height, phone, phoneHeight, onAspectRatio }) {
   const [index, setIndex]    = useState(0);
   const [direction, setDir]  = useState(1);
   const [hovering, setHover] = useState(false);
+  const [engaged, setEngaged] = useState(false);
 
-  const go = (next) => {
-    setDir(next > index ? 1 : -1);
+  const go = (next, dir = next > index ? 1 : -1) => {
+    setDir(dir);
     setIndex(next);
   };
-  const prev = () => go(index === 0 ? images.length - 1 : index - 1);
-  const next = () => go(index === images.length - 1 ? 0 : index + 1);
+  const prev = () => go(index === 0 ? images.length - 1 : index - 1, -1);
+  const next = () => go(index === images.length - 1 ? 0 : index + 1, 1);
 
-  const variants = {
-    enter:  (d) => ({ x: d > 0 ? "100%" : "-100%", opacity: 0 }),
-    center: { x: 0, opacity: 1, transition: { duration: 0.38, ease: [0.32, 0.72, 0, 1] } },
-    exit:   (d) => ({ x: d > 0 ? "-100%" : "100%", opacity: 0, transition: { duration: 0.3, ease: [0.32, 0.72, 0, 1] } }),
+  /* Warm the neighbouring screenshots once the user shows interest, so a slide never arrives blank */
+  useEffect(() => {
+    if (!engaged || images.length < 2) return;
+    [index + 1, index - 1].forEach((i) => {
+      const img = new Image();
+      img.src = images[(i + images.length) % images.length];
+    });
+  }, [engaged, index, images]);
+
+  const ease = [0.32, 0.72, 0, 1];
+
+  /* Phone: iOS-style push — the incoming screen slides over, the outgoing one drifts back and dims.
+     Browser: a short slide with a crossfade. */
+  const variants = phone
+    ? {
+        enter:  (d) => ({ x: d > 0 ? "100%" : "-30%", filter: d > 0 ? "brightness(1)" : "brightness(0.6)", zIndex: d > 0 ? 2 : 1 }),
+        center: { x: 0, filter: "brightness(1)", transition: { duration: 0.55, ease } },
+        exit:   (d) => ({ x: d > 0 ? "-30%" : "100%", filter: d > 0 ? "brightness(0.6)" : "brightness(1)", zIndex: d > 0 ? 1 : 2, transition: { duration: 0.55, ease } }),
+      }
+    : {
+        enter:  (d) => ({ x: d > 0 ? "8%" : "-8%", opacity: 0, scale: 0.985 }),
+        center: { x: 0, opacity: 1, scale: 1, transition: { duration: 0.5, ease } },
+        exit:   (d) => ({ x: d > 0 ? "-8%" : "8%", opacity: 0, scale: 0.985, transition: { duration: 0.4, ease } }),
+      };
+
+  const onDragEnd = (_, { offset, velocity }) => {
+    if (offset.x < -60 || velocity.x < -400) next();
+    else if (offset.x > 60 || velocity.x > 400) prev();
   };
 
   /* The sliding screen — sits inside the phone screen, or fills the frame directly */
@@ -320,19 +361,27 @@ function ImageCarousel({ images, height, phone, phoneHeight, onAspectRatio }) {
         initial="enter"
         animate="center"
         exit="exit"
-        style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        drag={images.length > 1 ? "x" : false}
+        dragSnapToOrigin
+        dragElastic={0.18}
+        onDragEnd={onDragEnd}
+        style={{
+          position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center",
+          background: phone ? "#000" : "#f0f0f0", touchAction: "pan-y", cursor: images.length > 1 ? "grab" : "default",
+        }}>
         <img
           src={images[index]}
           alt={`screenshot ${index + 1}`}
           loading="lazy"
           decoding="async"
+          draggable={false}
           onLoad={(e) => {
             if (!phone && onAspectRatio) {
               const { naturalWidth: w, naturalHeight: h } = e.target;
               if (w && h) onAspectRatio(w / h);
             }
           }}
-          style={{ width: "100%", height: "100%", objectFit: phone ? "cover" : "contain", display: "block" }}
+          style={{ width: "100%", height: "100%", objectFit: phone ? "cover" : "contain", display: "block", pointerEvents: "none" }}
         />
       </motion.div>
     </AnimatePresence>
@@ -340,7 +389,8 @@ function ImageCarousel({ images, height, phone, phoneHeight, onAspectRatio }) {
 
   return (
     <div
-      onMouseEnter={() => setHover(true)}
+      onMouseEnter={() => { setHover(true); setEngaged(true); }}
+      onTouchStart={() => setEngaged(true)}
       onMouseLeave={() => setHover(false)}
       style={{
         position: "relative", overflow: "hidden", height,

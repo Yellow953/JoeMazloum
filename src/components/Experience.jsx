@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { FaGlobe, FaChartLine, FaApple, FaGooglePlay } from "react-icons/fa";
 
 import dooreastLogo from "../assets/logos/dooreast.jpg";
 import gocklerLogo  from "../assets/logos/gockler.png";
@@ -83,6 +84,61 @@ function CompanyLogo({ exp }) {
   );
 }
 
+/* ── Live product links (prominent, shown under the description) ── */
+function ProductLinks({ links }) {
+  return (
+    <motion.div
+      custom={0.4}
+      variants={childVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.3 }}
+      style={{ marginTop: "1.1rem" }}>
+      <p style={{
+        margin: "0 0 0.6rem",
+        fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.16em",
+        textTransform: "uppercase", color: "#888",
+      }}>
+        Live products
+      </p>
+
+      <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))",
+        gap: "0.6rem",
+      }}>
+        {links.map(({ href, label, caption, Icon }) => (
+          <motion.a
+            key={href}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ y: -3, boxShadow: "0 10px 24px rgba(0,0,0,0.22)" }}
+            whileTap={{ scale: 0.97 }}
+            style={{
+              display: "flex", alignItems: "center", gap: "0.7rem",
+              padding: "0.7rem 0.9rem",
+              background: "#111", color: "#fff",
+              borderRadius: "12px",
+              textDecoration: "none",
+              cursor: "pointer",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.14)",
+            }}>
+            <Icon size={22} style={{ flexShrink: 0 }} />
+            <span style={{ display: "flex", flexDirection: "column", lineHeight: 1.2, minWidth: 0 }}>
+              <span style={{ fontSize: "0.68rem", color: "#bbb", letterSpacing: "0.02em" }}>{caption}</span>
+              <span style={{ fontSize: "0.95rem", fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                {label}
+              </span>
+            </span>
+            <span aria-hidden="true" style={{ marginLeft: "auto", color: "#888", fontSize: "0.9rem" }}>↗</span>
+          </motion.a>
+        ))}
+      </div>
+    </motion.div>
+  );
+}
+
 function ExperienceCard({ exp, index }) {
   return (
     <motion.div
@@ -156,6 +212,8 @@ function ExperienceCard({ exp, index }) {
         style={{ marginTop: "0.8rem", lineHeight: 1.6, color: "#333" }}>
         {exp.description}
       </motion.p>
+
+      {exp.links && <ProductLinks links={exp.links} />}
     </motion.div>
   );
 }
@@ -175,7 +233,13 @@ function Experience() {
       logo: dooreastLogo,
       date: "Jan 2025 – now",
       description:
-        "Led development of a large-scale real estate marketplace, delivering a seamless user experience across Angular web and Flutter mobile applications. Built and maintained a Laravel backend powering advanced property search, listings, and transactions. Deployed and scaled infrastructure on AWS (Route53, S3, EC2, VPS) with load balancing and auto-scaling, ensuring high availability and performance. Improved deployment pipelines and system reliability, supporting thousands of active users.",
+        "Led development of a large-scale real estate marketplace, delivering a seamless user experience across Angular web and Flutter mobile applications. Built and maintained a Laravel backend powering advanced property search, listings, and transactions, alongside a React CRM that lets the team manage listings, leads, and clients. Wrote Python automation scripts to streamline internal workflows and data processing. Deployed and scaled infrastructure on AWS (Route53, S3, EC2, VPS) with load balancing and auto-scaling, ensuring high availability and performance. Improved deployment pipelines and system reliability, supporting thousands of active users.",
+      links: [
+        { href: "https://dooreast.com", label: "dooreast.com", caption: "Website", Icon: FaGlobe },
+        { href: "https://crm.dooreast.com", label: "crm.dooreast.com", caption: "CRM", Icon: FaChartLine },
+        { href: "https://apps.apple.com/us/app/dooreast-lebanon-real-estate/id6741559405", label: "App Store", caption: "Check it out on", Icon: FaApple },
+        { href: "https://play.google.com/store/apps/details?id=com.app.dooreast&hl=en", label: "Google Play", caption: "Check it out on", Icon: FaGooglePlay },
+      ],
     },
     {
       role: "PHP Software Developer",

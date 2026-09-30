@@ -20,10 +20,10 @@ LinkedIn: https://www.linkedin.com/in/joe-mazloum/
 - **Flutter** — Cross-platform mobile apps with MVC architecture, GetX state management, Firebase integration, and AI chatbot integration.
 - **Python** — Automation bots (Selenium), Django backends, web scrapers, crypto trading bots with machine learning, Pygame.
 - **Ruby on Rails** — Robust backend APIs, optimized database queries, CI/CD workflows.
-- **Database** — MySQL, PostgreSQL, SQLite. Laravel migrations, seeders, performance optimization.
+- **Database (SQL & NoSQL)** — SQL: MySQL, PostgreSQL, SQLite (schema design, indexing, transactions, query optimization, Laravel migrations and seeders). NoSQL: Firebase Firestore (document modelling, real-time listeners, security rules).
 - **Shopify** — Theme customization, upselling strategies, e-commerce optimization.
-- **Server Deployments** — AWS (EC2, S3, Route53, VPS, Load Balancers, Auto Scaling), Linux, Nginx, Apache, Cloudflare, CI/CD pipelines, shared hosting (InMotion, Bluehost, Hostinger, GoDaddy).
-- **AI & Automation** — Claude (Anthropic) API integration, n8n automation pipelines, prompt engineering, tool use, LLM-powered features, AI chatbots in mobile/web apps.
+- **Server Deployments** — AWS (EC2, S3, Route53, VPS, Load Balancers, Auto Scaling), Google Cloud Platform, Oracle Cloud Infrastructure (OCI), Firebase, Linux, Nginx, Apache, Cloudflare, CI/CD pipelines, shared hosting (InMotion, Bluehost, Hostinger, GoDaddy).
+- **AI & Automation** — Claude (Anthropic), OpenAI (ChatGPT), and Google Gemini API integration for data analysis and chatbots, agentic coding with Claude Code and Google Antigravity, n8n automation pipelines, prompt engineering, tool use, LLM-powered features, AI chatbots in mobile/web apps.
 - **Languages** — English (fluent), Arabic (native), German (professional), French (conversational).
 
 ## Projects
@@ -39,6 +39,10 @@ Stack: Flutter, Dart, Firebase, Gemini AI, Mobile
 ### Trendy Closet — Fashion Storefront & Inventory Backend
 A fashion e-commerce storefront for a Lebanon-based clothing brand, paired with a full back-office system. Customers browse by category, colour, and size across dozens of live products, while staff manage the catalogue, categories, orders, and stock levels through a dedicated admin dashboard.
 Stack: React, E-commerce, Inventory, Admin Dashboard
+
+### Yellow Connect — Private VPN, Speed Test & IP Checker (mobile)
+A custom private VPN app running on a self-hosted WireGuard server. One tap routes traffic through the encrypted tunnel, with an optional connect-on-launch setting. It also includes a download and upload speed test with a live gauge and saved history, and an IP checker that shows the address, city, country, provider, and time zone websites can see.
+Stack: WireGuard, VPN, Networking, Privacy, Mobile
 
 ### Nehme Radiators — Corporate Site & Admin CRM (https://www.nehmeradiators.com/)
 A React-powered public storefront for a 55-year-old radiator manufacturer, paired with a Firebase-backed admin CRM. Staff manage the full product catalogue, track orders, control stock visibility, and handle inventory in real time.
@@ -75,7 +79,8 @@ Stack: Laravel, PHP, MySQL, Health, Mobile-ready
 ## Work Experience
 
 ### Lead Software Engineer — DoorEast (Jan 2025 – Present)
-Led development of a large-scale real estate marketplace. Built an Angular web app, Flutter mobile app, and Laravel backend with advanced property search, listings, and transactions. Deployed on AWS with EC2, S3, Route53, load balancing, and auto-scaling. Supported thousands of active users with high availability infrastructure.
+Led development of a large-scale real estate marketplace. Built an Angular web app, Flutter mobile app, Laravel backend with advanced property search, listings, and transactions, and a React CRM for managing listings, leads, and clients. Wrote Python automation scripts to streamline internal workflows and data processing. Deployed on AWS with EC2, S3, Route53, load balancing, and auto-scaling. Supported thousands of active users with high availability infrastructure.
+Live: website https://dooreast.com · CRM https://crm.dooreast.com · iOS https://apps.apple.com/us/app/dooreast-lebanon-real-estate/id6741559405 · Android https://play.google.com/store/apps/details?id=com.app.dooreast&hl=en
 
 ### PHP Software Developer — Göckler GMBH (Nov 2023 – Oct 2024)
 Modernized legacy PHP websites and CMS, upgrading from Xtcommerce 5 to 6.5 and Shopware 6. Reduced load times and boosted sales by 25% through design enhancements, popups, and upsell strategies.
@@ -95,6 +100,6 @@ Architected and deployed CRM and ERP systems with Laravel and Bootstrap, improvi
 - Architecting multi-tenant SaaS systems from scratch
 - Automating business workflows with n8n and Python
 - Migrating and modernizing legacy systems (PHP, CMS, e-commerce)
-- Deploying and scaling cloud infrastructure on AWS
+- Deploying and scaling cloud infrastructure on AWS, Google Cloud, and Oracle Cloud
 - Cross-platform mobile development with Flutter
 - Full-stack development: backend APIs, frontend SPAs, mobile apps
