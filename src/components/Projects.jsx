@@ -28,6 +28,13 @@ import wataniaHome  from "../assets/projects/watania/watania-1.png";
 import wataniaShop  from "../assets/projects/watania/watania-2.png";
 import wataniaLogin from "../assets/projects/watania/watania-login.png";
 
+// Deutsche Fahrrad
+import dfHome     from "../assets/projects/deutsche-fahrrad/home.png";
+import dfEbikes   from "../assets/projects/deutsche-fahrrad/ebikes.png";
+import dfMountain from "../assets/projects/deutsche-fahrrad/mountain-bikes.png";
+import dfProduct  from "../assets/projects/deutsche-fahrrad/product.png";
+import dfGuide    from "../assets/projects/deutsche-fahrrad/guide.png";
+
 // ESIB
 import esibHome   from "../assets/projects/esib/esib.png";
 import esibLogin  from "../assets/projects/esib/esib-login.png";
@@ -205,6 +212,15 @@ const projects = [
     tags: ["Laravel", "PHP", "MySQL", "Health", "Mobile-ready"],
     images: [cal1, cal2, cal3, calLogin],
     link: "http://calories-shop.com/",
+  },
+  {
+    title: "Deutsche Fahrrad",
+    subtitle: "E-bike & Bicycle Online Store",
+    description:
+      "An online bike shop I founded and launched in Germany in 2023 on Shopify. The catalogue spans e-bikes, folding e-bikes, mountain, road, gravel, and kids' bikes from brands like ESKUTE, VARUN, Huffy, and Samebike, with spec-tagged product cards, Shop Pay checkout, live chat, and buying guides such as how to choose an e-bike. The business was acquired in 2025 and is now run by its new owner.",
+    tags: ["Shopify", "E-commerce", "E-bikes", "Founder"],
+    images: [dfHome, dfEbikes, dfMountain, dfProduct, dfGuide],
+    link: "https://deutschefahrrad.de/",
   },
 ];
 
