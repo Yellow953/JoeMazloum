@@ -118,6 +118,12 @@ A custom private VPN app running on a self-hosted WireGuard server. One tap rout
 
 A React-powered public storefront for a 55-year-old radiator manufacturer, paired with a Firebase-backed admin CRM. Staff manage the full product catalogue, track orders, control stock visibility, and handle inventory — all in real time.
 
+### Store — E-commerce Shopping App
+- Platform: Mobile (Android, iOS)
+- Stack: Flutter, Dart, Firebase, E-commerce
+
+A Flutter shopping app on a Firebase backend that covers the whole buyer journey. Shoppers browse by category and brand, search with recent and trending results, choose product variants, and keep a bag with promo codes and a wishlist. Checkout handles address, delivery speed, and payment, and each order can be followed from processing to on the way to delivered.
+
 ### Watania Library — Book Shop & POS Backend
 - Live: https://watanialibrary.com/
 - Platform: Web

@@ -49,6 +49,10 @@ Stack: WireGuard, VPN, Networking, Privacy, Mobile
 A React-powered public storefront for a 55-year-old radiator manufacturer, paired with a Firebase-backed admin CRM. Staff manage the full product catalogue, track orders, control stock visibility, and handle inventory in real time.
 Stack: React, Firebase, Firestore, CRM, JavaScript
 
+### Store — E-commerce Shopping App (mobile)
+A Flutter shopping app on a Firebase backend that covers the whole buyer journey. Shoppers browse by category and brand, search with recent and trending results, choose product variants, and keep a bag with promo codes and a wishlist. Checkout handles address, delivery speed, and payment, and each order can be followed from processing to on the way to delivered.
+Stack: Flutter, Dart, Firebase, E-commerce, Mobile
+
 ### Watania Library — Book Shop & POS Backend (https://watanialibrary.com/)
 A dual-purpose Laravel platform: a public-facing shop for books, stationery, and school supplies across Lebanon, paired with a dedicated POS backend for in-store staff to handle walk-in sales, receipts, and stock in one system.
 Stack: Laravel, PHP, MySQL, POS, E-commerce

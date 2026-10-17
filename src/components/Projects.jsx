@@ -75,8 +75,17 @@ import yc3        from "../assets/projects/yellow-connect/speed-test.png";
 import yc4        from "../assets/projects/yellow-connect/ip-checker.png";
 import yc5        from "../assets/projects/yellow-connect/settings.png";
 
+// Store (mobile)
+import store1     from "../assets/projects/ecom/01_home.png";
+import store2     from "../assets/projects/ecom/02_shop.png";
+import store3     from "../assets/projects/ecom/06_search.png";
+import store4     from "../assets/projects/ecom/07_product_detail.png";
+import store5     from "../assets/projects/ecom/03_bag.png";
+import store6     from "../assets/projects/ecom/08_checkout.png";
+import store7     from "../assets/projects/ecom/13_order_detail_on_the_way.png";
+
 // Calories
-import cal1       from "../assets/projects/calories/calories-1.png";
+import cal1      from "../assets/projects/calories/calories-1.png";
 import cal2       from "../assets/projects/calories/calories-2.png";
 import cal3       from "../assets/projects/calories/calories-3.png";
 import calLogin   from "../assets/projects/calories/calories-login.png";
@@ -127,6 +136,15 @@ const projects = [
     tags: ["React", "Firebase", "Firestore", "CRM", "JavaScript"],
     images: [nehmeHome, nehmeShop, nehmeCRM],
     link: "https://www.nehmeradiators.com/",
+  },
+  {
+    title: "Store",
+    subtitle: "E-commerce Shopping App",
+    description:
+      "A Flutter shopping app on a Firebase backend that covers the whole buyer journey. Shoppers browse by category and brand, search with recent and trending results, choose product variants, and keep a bag with promo codes and a wishlist. Checkout handles address, delivery speed, and payment, and each order can be followed from processing to on the way to delivered.",
+    tags: ["Flutter", "Dart", "Firebase", "E-commerce", "Mobile"],
+    images: [store1, store2, store3, store4, store5, store6, store7],
+    type: "mobile",
   },
   {
     title: "Watania Library",
